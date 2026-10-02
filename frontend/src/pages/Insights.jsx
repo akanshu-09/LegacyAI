@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { analysisRequest, analysisStorageKey } from '../api';
+import IssuePanel from './IssuePanel';
 
 const reasons = {
   insufficient_history: 'Fewer than 14 calendar days of history are available.',
@@ -169,6 +170,6 @@ export default function Insights() {
     <div className="actions"><a href="/data">Manage dataset</a><button className="secondary" disabled={loading} onClick={() => setAttempt(attempt + 1)}>Refresh analytics</button></div>
     {loading && <p role="status">Calculating analytics…</p>}
     {error && <p role="alert" className="notice">{error.message}</p>}
-    {data && <Analytics data={data} />}
+    {data && <><IssuePanel key={data.analysis_id} analysisId={data.analysis_id} /><Analytics data={data} /></>}
   </>;
 }

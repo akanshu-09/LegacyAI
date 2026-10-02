@@ -7,6 +7,7 @@ from starlette.concurrency import run_in_threadpool
 
 from app.ingestion.validation import AnalysisError, MAX_UPLOAD_BYTES, ingest_csv
 from app.analytics.metrics import calculate_analytics
+from app.detectors.engine import detect_issues
 
 router = APIRouter(prefix="/api/v1/analysis", tags=["analysis"])
 DEMO_PATH = Path(__file__).resolve().parents[2] / "data" / "demo_business.csv"
@@ -68,3 +69,12 @@ def analytics(analysis_id: str, request: Request):
 def release(analysis_id: str, request: Request):
     request.app.state.sessions.delete(analysis_id)
     return Response(status_code=204)
+
+
+@router.get("/{analysis_id}/issues")
+def issues(analysis_id: str, request: Request):
+    store = request.app.state.sessions
+    session = store.get(analysis_id)
+    result = detect_issues(session.dataset.records)
+    metadata = store.describe(analysis_id)
+    return {"analysis_id": analysis_id, "expires_at": metadata["expires_at"], **result}

@@ -6,6 +6,8 @@ An evidence-backed AI decision engine for business sales and inventory data, bui
 
 Phase 0 provides the React/Vite + FastAPI foundation. Phase 1 adds CSV validation, temporary analysis sessions, a synthetic demo and a structural dataset profile at `/data`. Phase 2 adds deterministic backend analytics at `/insights`: business, product and category summaries, daily sales, and supported period comparisons. AI features remain planned. See [ROADMAP.md](ROADMAP.md).
 
+Phase 3 adds deterministic demand decline/spike, stockout risk, excess inventory and daily sales anomaly detectors. `/insights` now includes issue filters, explicit unsupported evaluations, and an evidence panel with verified values, exact fractions, methods and provenance. No AI or recommendations are generated.
+
 ## Repository
 
 - `frontend/`: React + Vite browser application
@@ -58,6 +60,8 @@ curl.exe -X POST http://localhost:8000/api/v1/analysis/demo
 Run upload commands from the repository root. Retrieve/release profiles with GET/DELETE `/api/v1/analysis/{analysis_id}`. GET `/api/v1/analysis/{analysis_id}/analytics` returns deterministic metrics without raw rows or extending expiry. Unknown/expired IDs return 404 with instructions to reload data. See the data contract for error shapes and session capacity limits.
 
 After loading data, follow **View deterministic business analytics** to `/insights`. Revenue uses the supplied values; inventory uses each product's latest snapshot once. Comparisons use the latest seven dataset calendar days versus the preceding seven, requiring complete daily product coverage. Missing observations cause explicit abstention. Money uses Decimal and two-place strings; V1 supplies no currency identifier. See [metric definitions](docs/METRICS.md) for exact formulas and limitations.
+
+GET `/api/v1/analysis/{analysis_id}/issues` returns versioned issues, evidence and per-detector evaluations for the same session. In `/insights`, choose **All**, **Demand**, **Inventory** or **Anomalies**, then **View evidence**. Severity is assigned by backend rules; unsupported is distinct from evaluated-no-issue. Demand uses supported seven-day comparisons; inventory uses a fresh end-date snapshot and recent demand; anomalies use a documented historical IQR baseline. See [detector/evidence contract](docs/DETECTORS.md) and [Phase 3 validation](docs/PHASE3_VALIDATION.md). The unchanged demo yields three inventory conditions; the separate synthetic `backend/tests/fixtures/detectors_business.csv` exercises all five families.
 
 `VITE_API_BASE_URL` defaults to `http://localhost:8000`. Vite embeds it in the browser bundle at build time: never put secrets in `VITE_*` variables. Restart Vite after configuration changes. No API keys are needed in Phase 0.
 

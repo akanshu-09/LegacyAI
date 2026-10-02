@@ -40,3 +40,7 @@ details { margin: 20px 0; }
 summary { cursor: pointer; }
 section + button { margin-top: 20px; }
 @media (max-width: 560px) { main { padding: 16px; } section { padding: 16px; } .profile-grid { grid-template-columns: 1fr; } }
+.issue-card, .evidence-item { border-top: 1px solid #dde3e8; padding: 1rem 0; }
+.evidence-panel { border: 1px solid #b6c7cf; padding: 1rem; }
+.evidence-panel pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+button[aria-pressed="true"] { outline: 2px solid #246174; }

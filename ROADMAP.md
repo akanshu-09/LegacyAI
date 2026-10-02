@@ -35,12 +35,12 @@ Work in phase order. Deployment follows the complete core product vertical slice
 ## Phase 3 — Issue Detection & Evidence
 - Objective: turn trusted metrics into traceable issues.
 - Functionality: deterministic rule detectors, explicit thresholds, evidence IDs and source/metric references.
-- Expected files/modules: backend/app/detectors/, backend/app/evidence/, frontend/src/pages/Decisions.jsx, frontend/src/pages/DecisionDetail.jsx.
+- Expected files/modules: backend/app/detectors/, backend/app/evidence/, frontend/src/pages/IssuePanel.jsx within /insights, docs/DETECTORS.md. The requested minimal evidence panel provides inspection; separate decision pages are deferred.
 - Acceptance criteria: every issue links to reproducible evidence; thresholds and severity are explainable; no unsupported issue appears.
 - Required tests: threshold boundaries, evidence integrity, stable references, no-issue cases and missing evidence.
 - Out of scope: LLM reasoning and simulation.
-- Completion status: not started.
-- Handoff notes: version the evidence contract and define allowable numerical claims before AI integration.
+- Completion status: complete; locally validated and adversarially audited on 2026-10-02. All five detector families, exact thresholds, semantic deterministic IDs, provenance and abstention are implemented. Final boundary/evidence audit passed after correcting presentation-dependent IDs; 219 backend tests, frontend production build, npm audit and demo/upload evidence workflows passed. See docs/PHASE3_VALIDATION.md.
+- Handoff notes: docs/DETECTORS.md defines detectors-v1, issues-v1 and evidence-v1, exact rational values, severity rules and identity/provenance. Frozen Phase 0–2 contracts and demo data are unchanged. Phase 4 must verify claims against evidence and preserve unsupported states; user-supplied labels are untrusted. No AI, recommendations or deployment is implemented. Stop until Phase 4 is requested.
 
 ## Phase 4 — AI Decision Engine + Claim Verification
 - Objective: generate recommendations grounded in verified evidence.
