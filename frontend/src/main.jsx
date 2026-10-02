@@ -6,6 +6,8 @@ import Insights from './pages/Insights';
 import Decisions from './pages/Decisions';
 import Ask from './pages/Ask';
 import Simulator from './pages/Simulator';
+import Overview from './pages/Overview';
+import Icon from './components/Icon';
 import { apiBaseUrl } from './api';
 
 function Health() {
@@ -62,25 +64,23 @@ function App() {
   const isSimulator = pathname === '/simulator';
 
   return (
-    <main>
-      <header>
-        <p className="eyebrow">Verified data. Traceable decisions.</p>
-        <h1>LegacyAI</h1>
-        <p>AI reasons about verified data — it does not replace the data.</p>
+    <div className="app-shell">
+      <header className="app-header">
+        <a className="brand" href="/" aria-label="LegacyAI overview"><span className="brand-mark">L</span><span>LegacyAI</span></a>
         <nav aria-label="Main navigation">
-          <a href="/" aria-current={!isData && !isInsights && !isDecisions && !isAsk && !isSimulator ? 'page' : undefined}>Overview</a>
-          <a href="/data" aria-current={isData ? 'page' : undefined}>Data</a>
-          <a href="/insights" aria-current={isInsights ? 'page' : undefined}>Insights</a>
-          <a href="/ask" aria-current={isAsk ? 'page' : undefined}>Ask AI</a>
-          <a href="/decisions" aria-current={isDecisions ? 'page' : undefined}>Decisions</a>
-          <a href="/simulator" aria-current={isSimulator ? 'page' : undefined}>Simulator</a>
+          <a href="/" aria-current={!isData && !isInsights && !isDecisions && !isAsk && !isSimulator ? 'page' : undefined}><Icon name="overview" />Overview</a>
+          <a href="/data" aria-current={isData ? 'page' : undefined}><Icon name="data" />Data</a>
+          <a href="/insights" aria-current={isInsights ? 'page' : undefined}><Icon name="insights" />Insights</a>
+          <a href="/ask" aria-current={isAsk ? 'page' : undefined}><Icon name="ask" />Ask AI</a>
+          <a href="/decisions" aria-current={isDecisions ? 'page' : undefined}><Icon name="decisions" />Decisions</a>
+          <a href="/simulator" aria-current={isSimulator ? 'page' : undefined}><Icon name="simulator" />Simulator</a>
         </nav>
+        <a className="button secondary header-action" href="/data">Open data</a>
       </header>
-      {isSimulator ? <Simulator /> : isAsk ? <Ask /> : isDecisions ? <Decisions /> : isInsights ? <Insights /> : isData ? <Data /> : <>
-        <Health />
-        <section><h2>Start with trustworthy data</h2><p>Validate a CSV and inspect its dataset profile in a temporary analysis session.</p><a href="/data">Open data workspace →</a></section>
-      </>}
-    </main>
+      <main className="workspace">
+      {isSimulator ? <Simulator /> : isAsk ? <Ask /> : isDecisions ? <Decisions /> : isInsights ? <Insights /> : isData ? <Data /> : <><Overview /><details className="connection-details"><summary>Connection status</summary><Health /></details></>}
+      </main>
+    </div>
   );
 }
 

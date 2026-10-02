@@ -22,6 +22,12 @@ Decision Workspace UI (/decisions)
   - `MockDecisionReasoner`: Deterministic provider for unit and integration testing without network calls or API keys.
 - Factory: `get_reasoner()` automatically selects provider based on `LLM_PROVIDER` (`groq` or `mock`).
 
+### Evidence normalization
+
+Provider inputs use the actual evidence-v1 contract: `value` is an integer for safe counts, a numeric string for large counts, or a two-place numeric string for Decimal/Fraction-derived display values. Zero is a valid fact, not a missing value. Raw Decimal/Fraction objects are serialized by EvidenceBuilder before this boundary; nested `value.display_string` objects exist only in old mock fixtures and are not canonical runtime evidence.
+
+`normalize_evidence` preserves each original value and every evidence field (ID, schema/version, entity, exact numerator/denominator, unit, periods, source name/kind, inputs, method and observation date), adding a separate `display_string` for readable prompting. Numeric strings retain their precision/sign exactly; integers get a decimal display string. Unsupported/missing values, booleans, floats, nulls and nested objects fail explicitly with ProviderSchemaError, allowing existing unavailable handling rather than stringifying unknown facts. The verifier still receives the original deterministic evidence, never the provider's normalized copy. Runtime HTTPX is pinned in requirements.txt so a production-only install can import the provider transport.
+
 ## Verification Policy (`app/verification/verifier.py`)
 Verification runs independently of the LLM using Python logic:
 1. **Citation Verification:** All cited evidence IDs in `reasoning.evidence_ids` and `root_causes[].evidence_ids` must exist in the dataset's evidence pool for that issue.

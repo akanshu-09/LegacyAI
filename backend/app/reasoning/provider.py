@@ -5,6 +5,7 @@ Enforces provider separation, structured JSON outputs, and graceful failure hand
 
 import json
 import os
+import re
 from abc import ABC, abstractmethod
 from typing import Any
 
@@ -37,6 +38,26 @@ class ProviderRateLimitError(ProviderError):
 class ProviderSchemaError(ProviderError):
     """Raised when provider output violates structured schema."""
     pass
+
+
+def normalize_evidence(evidence: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Present evidence-v1 values without changing their exact facts or identity.
+
+    EvidenceBuilder serializes counts as ints (large counts as strings) and
+    Decimal/Fraction ratios as numeric strings. Nested display objects are not
+    part of that contract. Keep the complete provenance and exact ratio fields.
+    """
+    normalized = []
+    for ev in evidence:
+        value = ev.get("value")
+        if type(value) is int:
+            readable = str(value)
+        elif isinstance(value, str) and re.fullmatch(r"-?[0-9]+(?:\.[0-9]+)?", value):
+            readable = value
+        else:
+            raise ProviderSchemaError("Verified evidence has an unsupported value type or format.")
+        normalized.append({**ev, "display_string": readable})
+    return normalized
 
 
 class BaseDecisionReasoner(ABC):
@@ -99,18 +120,7 @@ class GroqDecisionReasoner(BaseDecisionReasoner):
     ) -> DecisionReasoning:
         import httpx
 
-        evidence_summary = [
-            {
-                "evidence_id": ev["evidence_id"],
-                "metric": ev["metric"],
-                "value": ev.get("value", {}).get("display_string", str(ev.get("value"))),
-                "unit": ev.get("unit"),
-                "period": ev.get("period"),
-                "method": ev.get("method"),
-                "source": ev.get("source", {}).get("name")
-            }
-            for ev in evidence
-        ]
+        evidence_summary = normalize_evidence(evidence)
 
         user_content = json.dumps({
             "issue": {
@@ -124,7 +134,7 @@ class GroqDecisionReasoner(BaseDecisionReasoner):
             },
             "verified_evidence": evidence_summary,
             "business_context": context or {}
-        }, indent=2)
+        }, indent=2, allow_nan=False)
 
         payload = {
             "model": self.model,

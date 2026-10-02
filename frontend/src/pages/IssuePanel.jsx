@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { analysisRequest } from '../api';
+import EvidenceCard from '../components/EvidenceCard';
 
 const groups = {
   All: null,
@@ -72,7 +73,7 @@ export default function IssuePanel({ analysisId }) {
           {issue.observation_date && <> · Observation {issue.observation_date}</>}</p>
         <div className="actions" style={{ display: 'flex', gap: '8px', marginTop: '8px' }}>
           <button className="secondary" onClick={() => setSelected(issue)}>View evidence: {issue.title} · {issue.entity_name}{issue.observation_date ? ` · ${issue.observation_date}` : ''}</button>
-          <a href={`/decisions/${encodeURIComponent(issue.issue_id)}`} style={{ display: 'inline-flex', alignItems: 'center', padding: '0.5rem 1rem', background: '#246174', color: '#ffffff', borderRadius: '4px', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 'bold' }}>
+          <a href={`/decisions/${encodeURIComponent(issue.issue_id)}`} style={{ display: 'inline-flex', alignItems: 'center', padding: '0.5rem 1rem', background: 'var(--accent)', color: 'var(--surface)', borderRadius: '4px', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 'bold' }}>
             Investigate & Decide →
           </a>
         </div>
@@ -82,21 +83,11 @@ export default function IssuePanel({ analysisId }) {
         <h3 id="evidence-title">Evidence: {selected.title} · {selected.entity_name}</h3>
         <button className="secondary" onClick={() => setSelected(null)}>Close evidence</button>
         <p>Dataset as-of date: {selected.detected_at} · Detector: {selected.detector_version}</p>
-        <p className="column-list">Issue ID: {selected.issue_id}</p>
+        <details><summary>Issue reference</summary><p className="column-list">Issue ID: {selected.issue_id}</p></details>
         <p>Ratios are rounded for display. Exact fractions and inputs below preserve the values used by the detector.</p>
         {selected.evidence_ids.map((id) => {
           const item = evidenceById.get(id);
-          return item ? <article className="evidence-item" key={id}>
-            <h4>{item.metric}: {item.value} {item.unit}</h4>
-            <p>Period: {range(item.period)} · Comparison/baseline: {range(item.comparison_period)}</p>
-            {item.observation_date && <p>Observed on: {item.observation_date}</p>}
-            <p>Source: {item.source.name} ({item.source.kind})</p>
-            <p>Method: {item.method}</p>
-            <p>Exact value: {item.exact.numerator} / {item.exact.denominator}</p>
-            <details><summary>Calculation inputs and evidence ID</summary>
-              <pre>{JSON.stringify(item.inputs, null, 2)}</pre><p className="column-list">{id}</p>
-            </details>
-          </article> : <p role="alert" key={id}>Referenced evidence is unavailable. Do not rely on this issue.</p>;
+          return item ? <EvidenceCard key={id} evidence={item} /> : <p role="alert" key={id}>Referenced evidence is unavailable. Do not rely on this issue.</p>;
         })}
       </section>}
       <h3>Detector evaluations</h3>
