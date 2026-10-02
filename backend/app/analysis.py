@@ -13,9 +13,28 @@ from app.verification.verifier import verify_claims
 from app.reasoning.provider import get_reasoner, ProviderError
 from app.ask.intent import classify_intent
 from app.ask.engine import execute_ask
+from app.simulation.engine import SimulationInput, simulation_options, simulate
 
 router = APIRouter(prefix="/api/v1/analysis", tags=["analysis"])
 DEMO_PATH = Path(__file__).resolve().parents[2] / "data" / "demo_business.csv"
+
+
+@router.get("/{analysis_id}/simulation")
+def simulation_products(analysis_id: str, request: Request):
+    store = request.app.state.sessions
+    session = store.get(analysis_id)
+    result = simulation_options(session.dataset.records)
+    metadata = store.describe(analysis_id)
+    return {"analysis_id": analysis_id, "expires_at": metadata["expires_at"], **result}
+
+
+@router.post("/{analysis_id}/simulate")
+def simulation_run(analysis_id: str, inputs: SimulationInput, request: Request):
+    store = request.app.state.sessions
+    session = store.get(analysis_id)
+    result = simulate(session.dataset.records, inputs)
+    metadata = store.describe(analysis_id)
+    return {"analysis_id": analysis_id, "expires_at": metadata["expires_at"], **result}
 
 
 async def _process_decision(analysis_id: str, issue_id: str, request: Request, reasoner_override=None):

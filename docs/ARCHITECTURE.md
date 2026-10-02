@@ -1,6 +1,6 @@
 # Architecture
 
-## Implemented through Phase 3
+## Implemented through Phase 6
 
 React/Vite and one FastAPI/Python modular monolith share a monorepo. Backend modules will share one application and deployment, not independent services.
 
@@ -16,11 +16,15 @@ Phase 3 adds GET `/api/v1/analysis/{analysis_id}/issues`. `app/detectors/config.
 
 The browser reads public VITE_API_BASE_URL; the backend reads CORS_ORIGINS. Local .env files are ignored; examples are committed. CORS permits configured origins only and is not authentication. Phase 1 adds POST for upload/demo and DELETE for release to GET; configured/unconfigured origins and preflight behavior are tested. No credentials are used.
 
+Phase 4 adds server-side provider reasoning and independent verification; Phase 5 adds intent-based Ask. Their implementations remain unchanged by Phase 6. See AI_CONTRACT.md for the existing structured reasoning boundary. AI errors do not prevent deterministic simulation.
+
+Phase 6 adds GET `/api/v1/analysis/{analysis_id}/simulation` and POST `/{analysis_id}/simulate`, composed in the existing analysis router. `app/simulation/engine.py` validates explicit scenario inputs and calculates exact unit ratios using standard-library Fraction. Its contract in [SIMULATION.md](SIMULATION.md) distinguishes observed sources, user assumptions, baseline and hypothetical scenario. There is no simulation LLM call, financial arithmetic, cache, retained result or source-record mutation. Session availability is checked before and after calculation. The `/simulator` page only displays backend outputs, persists only analysis_id, and clears transient results at expiry. A Decisions link selects its issue's product without inventing a reorder quantity.
+
 ## Boundaries and later work
 
 1. Ingestion and temporary sessions are implemented in Phase 1 using the V1 contract. Future extensions must preserve explicit validation and session isolation.
 2. Deterministic Python analytics are implemented in Phase 2 with documented units, time windows, assumptions, missing values, and aggregation rules.
-3. Phase 3 implements five issue detector families with stable issue/evidence IDs, traceable numerical provenance and first-class abstention. The `/insights` evidence panel is the minimal inspection UI; separate decision routes remain future presentation work.
+3. Phase 3 implements five issue detector families with stable issue/evidence IDs, traceable numerical provenance and first-class abstention. The `/insights` evidence panel remains available alongside the later decision workspace.
 4. Groq reasons only over verified evidence. Structured schemas constrain recommendations and numerical claims.
 5. Independent verification checks AI claims against evidence before presentation. Unsupported claims are rejected or cause abstention; schema validity alone is insufficient.
 6. Ask LegacyAI uses the same evidence and verification path, never LLM calculations as authoritative metrics.
@@ -31,7 +35,7 @@ Planned flow: validated inputs → deterministic metrics → issues/evidence →
 
 ## Frontend and deployment
 
-The browser owns presentation, never authoritative calculations or provider credentials. Routes `/`, `/data` and `/insights` exist; `/ask`, `/decisions`, `/decisions/:issueId` and `/simulator` belong to later phases. Navigation uses standard links with Vite's local SPA fallback; no routing dependency is needed. Only the analysis ID persists in sessionStorage; analytics, issues and evidence are transient and expire with the session. IssuePanel fetches detection separately so errors do not remove working analytics. It filters/paginates backend issues/evaluations and resolves evidence IDs without assigning severity or calculating business values.
+The browser owns presentation, never authoritative calculations or provider credentials. Routes `/`, `/data`, `/insights`, `/ask`, `/decisions`, `/decisions/:issueId` and `/simulator` exist. Navigation uses standard links with Vite's local SPA fallback; no routing dependency is needed. Only the analysis ID persists in sessionStorage; analytics, issues, evidence and simulation results are transient. IssuePanel fetches detection separately so errors do not remove working analytics. It filters/paginates backend issues/evaluations and resolves evidence IDs without assigning severity or calculating business values.
 
 Vite static output is compatible with Vercel. Uvicorn/FastAPI is compatible with Render. Deployment is Phase 7, after ingestion, analytics, evidence, verified AI reasoning, Ask and simulation work locally. Phase 7 configures the API URL before building and exact deployed frontend origins on the backend. Future Groq credentials stay in backend environment secrets. No deployment occurs in Phase 2.
 

@@ -5,6 +5,7 @@ import Data from './pages/Data';
 import Insights from './pages/Insights';
 import Decisions from './pages/Decisions';
 import Ask from './pages/Ask';
+import Simulator from './pages/Simulator';
 import { apiBaseUrl } from './api';
 
 function Health() {
@@ -58,6 +59,7 @@ function App() {
   const isInsights = pathname === '/insights';
   const isDecisions = pathname.startsWith('/decisions');
   const isAsk = pathname === '/ask';
+  const isSimulator = pathname === '/simulator';
 
   return (
     <main>
@@ -66,14 +68,15 @@ function App() {
         <h1>LegacyAI</h1>
         <p>AI reasons about verified data — it does not replace the data.</p>
         <nav aria-label="Main navigation">
-          <a href="/" aria-current={!isData && !isInsights && !isDecisions && !isAsk ? 'page' : undefined}>Overview</a>
+          <a href="/" aria-current={!isData && !isInsights && !isDecisions && !isAsk && !isSimulator ? 'page' : undefined}>Overview</a>
           <a href="/data" aria-current={isData ? 'page' : undefined}>Data</a>
           <a href="/insights" aria-current={isInsights ? 'page' : undefined}>Insights</a>
           <a href="/ask" aria-current={isAsk ? 'page' : undefined}>Ask AI</a>
           <a href="/decisions" aria-current={isDecisions ? 'page' : undefined}>Decisions</a>
+          <a href="/simulator" aria-current={isSimulator ? 'page' : undefined}>Simulator</a>
         </nav>
       </header>
-      {isAsk ? <Ask /> : isDecisions ? <Decisions /> : isInsights ? <Insights /> : isData ? <Data /> : <>
+      {isSimulator ? <Simulator /> : isAsk ? <Ask /> : isDecisions ? <Decisions /> : isInsights ? <Insights /> : isData ? <Data /> : <>
         <Health />
         <section><h2>Start with trustworthy data</h2><p>Validate a CSV and inspect its dataset profile in a temporary analysis session.</p><a href="/data">Open data workspace →</a></section>
       </>}

@@ -4,6 +4,8 @@
 - [V1 data contract and API](DATA_CONTRACT.md)
 - [Deterministic metric definitions](METRICS.md)
 - [Detector and evidence contract](DETECTORS.md)
+- [What-if simulation contract](SIMULATION.md)
+- [Phase 6 validation](PHASE6_VALIDATION.md)
 - [Phase 3 validation](PHASE3_VALIDATION.md)
 - [Phase 2 validation](PHASE2_VALIDATION.md)
 - [Phase 1 validation](PHASE1_VALIDATION.md)

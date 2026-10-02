@@ -69,8 +69,8 @@ Work in phase order. Deployment follows the complete core product vertical slice
 - Acceptance criteria: identical inputs produce identical results; baseline and scenario remain distinct; unsupported scenarios are rejected.
 - Required tests: unchanged baseline, hand-computed scenarios, invalid ranges, zero/missing values and no source-data mutation.
 - Out of scope: predictive neural models, reinforcement learning, autonomous purchasing.
-- Completion status: not started.
-- Handoff notes: document scenario limitations and units for UX polish.
+- Completion status: complete locally (2026-10-02).
+- Handoff notes: deterministic product scenarios, explicit baseline receipt, bounded percentage controls and 7/14/30-day horizons implemented. Exact unit arithmetic, hypothetical comparisons, zero-demand abstention and session lifecycle verified. 298 backend tests pass; one optional live Groq test skips. Frontend build and browser validation pass. See docs/SIMULATION.md and docs/PHASE6_VALIDATION.md. Phase 7 remains not started.
 
 ## Phase 7 — Deployment
 - Objective: validate split hosting after the complete core vertical slice works locally.

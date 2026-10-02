@@ -43,4 +43,6 @@ section + button { margin-top: 20px; }
 .issue-card, .evidence-item { border-top: 1px solid #dde3e8; padding: 1rem 0; }
 .evidence-panel { border: 1px solid #b6c7cf; padding: 1rem; }
 .evidence-panel pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+#simulator-heading ~ form input, #simulator-heading ~ form select { display: block; margin-bottom: 20px; max-width: 100%; padding: 8px; font: inherit; }
+#simulator-heading ~ details pre { white-space: pre-wrap; overflow-wrap: anywhere; }
 button[aria-pressed="true"] { outline: 2px solid #246174; }

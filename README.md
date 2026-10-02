@@ -4,11 +4,13 @@ An evidence-backed AI decision engine for business sales and inventory data, bui
 
 **AI reasons about verified data — it does not replace the data.** Authoritative business metrics will come exclusively from deterministic Python calculations.
 
-Phase 0 provides the React/Vite + FastAPI foundation. Phase 1 adds CSV validation, temporary analysis sessions, a synthetic demo and a structural dataset profile at `/data`. Phase 2 adds deterministic backend analytics at `/insights`: business, product and category summaries, daily sales, and supported period comparisons. AI features remain planned. See [ROADMAP.md](ROADMAP.md).
+Phase 0 provides the React/Vite + FastAPI foundation. Phase 1 adds CSV validation, temporary analysis sessions, a synthetic demo and a structural dataset profile at `/data`. Phase 2 adds deterministic backend analytics at `/insights`: business, product and category summaries, daily sales, and supported period comparisons. Phases 4–5 add server-side AI reasoning, independent verification and Ask LegacyAI; Phase 6 adds hypothetical simulation. See [ROADMAP.md](ROADMAP.md).
 
 Phase 3 adds deterministic demand decline/spike, stockout risk, excess inventory and daily sales anomaly detectors. `/insights` now includes issue filters, explicit unsupported evaluations, and an evidence panel with verified values, exact fractions, methods and provenance. No AI or recommendations are generated.
 
 ## Repository
+
+Phase 6 adds `/simulator`: choose a product, supply your own hypothetical baseline receipt quantity, adjust receipt −50…+50% and demand −30…+30%, then select 7/14/30 days. Python returns separate baseline/scenario demand, ending inventory, remaining coverage, stockout/excess conditions and exact differences. Results are scenarios, not forecasts or order instructions. Complete recent coverage and fresh stock are required. Zero demand explicitly abstains on coverage/excess. Decisions links into the selected product; no AI key is required for simulation. See [simulation formulas and assumptions](docs/SIMULATION.md) and [Phase 6 validation](docs/PHASE6_VALIDATION.md). Phase 7 deployment remains unstarted.
 
 - `frontend/`: React + Vite browser application
 - `backend/app/`: FastAPI modular monolith

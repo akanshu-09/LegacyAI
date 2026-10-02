@@ -118,6 +118,7 @@ export default function Decisions() {
                 </span>
               </div>
               <p style={{ marginTop: '0.5rem', color: '#475569' }}>{currentIssue.summary}</p>
+              <a href={`/simulator?product_id=${encodeURIComponent(currentIssue.entity_id)}`}>Simulate this product with your own assumptions →</a>
             </div>
           )}
 
