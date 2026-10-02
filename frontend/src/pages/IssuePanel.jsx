@@ -70,8 +70,12 @@ export default function IssuePanel({ analysisId }) {
         <h3>{issue.title} · {issue.entity_name}</h3>
         <p><strong>{issue.severity}</strong> · Product {issue.entity_id}
           {issue.observation_date && <> · Observation {issue.observation_date}</>}</p>
-        <p>{issue.summary}</p>
-        <button className="secondary" onClick={() => setSelected(issue)}>View evidence: {issue.title} · {issue.entity_name}{issue.observation_date ? ` · ${issue.observation_date}` : ''}</button>
+        <div className="actions" style={{ display: 'flex', gap: '8px', marginTop: '8px' }}>
+          <button className="secondary" onClick={() => setSelected(issue)}>View evidence: {issue.title} · {issue.entity_name}{issue.observation_date ? ` · ${issue.observation_date}` : ''}</button>
+          <a href={`/decisions/${encodeURIComponent(issue.issue_id)}`} style={{ display: 'inline-flex', alignItems: 'center', padding: '0.5rem 1rem', background: '#246174', color: '#ffffff', borderRadius: '4px', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 'bold' }}>
+            Investigate & Decide →
+          </a>
+        </div>
       </article>)}
       <Pages page={page} count={issues.length} onChange={setPage} label="issues" />
       {selected && <section className="evidence-panel" aria-labelledby="evidence-title">

@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import './style.css';
 import Data from './pages/Data';
 import Insights from './pages/Insights';
+import Decisions from './pages/Decisions';
 import { apiBaseUrl } from './api';
 
 function Health() {
@@ -51,8 +52,11 @@ function Health() {
 }
 
 function App() {
-  const isData = window.location.pathname === '/data';
-  const isInsights = window.location.pathname === '/insights';
+  const pathname = window.location.pathname;
+  const isData = pathname === '/data';
+  const isInsights = pathname === '/insights';
+  const isDecisions = pathname.startsWith('/decisions');
+
   return (
     <main>
       <header>
@@ -60,12 +64,13 @@ function App() {
         <h1>LegacyAI</h1>
         <p>AI reasons about verified data — it does not replace the data.</p>
         <nav aria-label="Main navigation">
-          <a href="/" aria-current={!isData && !isInsights ? 'page' : undefined}>Overview</a>
+          <a href="/" aria-current={!isData && !isInsights && !isDecisions ? 'page' : undefined}>Overview</a>
           <a href="/data" aria-current={isData ? 'page' : undefined}>Data</a>
           <a href="/insights" aria-current={isInsights ? 'page' : undefined}>Insights</a>
+          <a href="/decisions" aria-current={isDecisions ? 'page' : undefined}>Decisions</a>
         </nav>
       </header>
-      {isInsights ? <Insights /> : isData ? <Data /> : <>
+      {isDecisions ? <Decisions /> : isInsights ? <Insights /> : isData ? <Data /> : <>
         <Health />
         <section><h2>Start with trustworthy data</h2><p>Validate a CSV and inspect its dataset profile in a temporary analysis session.</p><a href="/data">Open data workspace →</a></section>
       </>}

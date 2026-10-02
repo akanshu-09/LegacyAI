@@ -49,8 +49,8 @@ Work in phase order. Deployment follows the complete core product vertical slice
 - Acceptance criteria: only verified claims reach users; fabricated numbers/references are rejected; provider secrets never reach the browser.
 - Required tests: mocked provider contracts, fabricated claims, schema violations, prompt injection in data, timeouts, rate limits and abstention.
 - Out of scope: general chat, agents, RAG, autonomous actions.
-- Completion status: not started.
-- Handoff notes: preserve raw/verified distinction; record validation policy and error behavior for Ask.
+- Completion status: complete; locally validated on 2026-10-02.
+- Handoff notes: Groq integration, provider abstraction, structured output schemas, independent claim verification, graceful provider failure degradation, and /decisions workspace implemented. 230 backend tests and frontend production build pass.
 
 ## Phase 5 — Ask LegacyAI
 - Objective: answer supported questions about the active verified dataset.

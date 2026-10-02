@@ -8,9 +8,121 @@ from starlette.concurrency import run_in_threadpool
 from app.ingestion.validation import AnalysisError, MAX_UPLOAD_BYTES, ingest_csv
 from app.analytics.metrics import calculate_analytics
 from app.detectors.engine import detect_issues
+from app.schemas.ai import DecisionReasoning
+from app.verification.verifier import verify_claims
+from app.reasoning.provider import get_reasoner, ProviderError
 
 router = APIRouter(prefix="/api/v1/analysis", tags=["analysis"])
 DEMO_PATH = Path(__file__).resolve().parents[2] / "data" / "demo_business.csv"
+
+
+async def _process_decision(analysis_id: str, issue_id: str, request: Request, reasoner_override=None):
+    store = request.app.state.sessions
+    session = store.get(analysis_id)
+    detection = detect_issues(session.dataset.records)
+    issues_list = detection.get("issues", [])
+    evidence_list = detection.get("evidence", [])
+    evaluations_list = detection.get("evaluations", [])
+
+    issue = next((i for i in issues_list if i.get("issue_id") == issue_id), None)
+    if not issue:
+        eval_item = next((e for e in evaluations_list if issue_id in e.get("issue_ids", []) or e.get("entity_id") == issue_id), None)
+        if eval_item and eval_item.get("status") == "unsupported":
+            metadata = store.describe(analysis_id)
+            reasoning = DecisionReasoning(
+                summary="LegacyAI abstained from generating recommendations because the issue is in an unsupported evaluation state.",
+                root_causes=[],
+                recommendation={"action": "Abstain", "target": eval_item.get("entity_name", "Target product"), "timeframe_days": 14},
+                assumptions=[],
+                uncertainties=[f"Unsupported reason: {eval_item.get('reason')}"],
+                what_would_change_this_decision=["Provide continuous daily sales observations and fresh inventory snapshot."],
+                evidence_ids=[],
+                abstain=True,
+                abstain_reason=f"Issue evaluation status is unsupported: {eval_item.get('reason')}"
+            )
+            verification = verify_claims(reasoning, {"issue_id": issue_id}, [])
+            return {
+                "analysis_id": analysis_id,
+                "expires_at": metadata["expires_at"],
+                "issue_id": issue_id,
+                "issue": {
+                    "issue_id": issue_id,
+                    "title": f"Unsupported issue ({eval_item.get('issue_type')})",
+                    "severity": "UNSUPPORTED",
+                    "entity_name": eval_item.get("entity_name"),
+                    "summary": f"Detection is unsupported due to: {eval_item.get('reason')}",
+                    "evidence_ids": []
+                },
+                "ai_available": True,
+                "ai_error": None,
+                "reasoning": reasoning.model_dump(),
+                "verification": verification.model_dump(),
+                "cited_evidence": []
+            }
+        raise AnalysisError("issue_not_found", f"No issue found with ID '{issue_id}' for this analysis session.", 404)
+
+    issue_evidence = [ev for ev in evidence_list if ev.get("evidence_id") in set(issue.get("evidence_ids", []))]
+    metadata = store.describe(analysis_id)
+
+    try:
+        reasoner = reasoner_override if reasoner_override is not None else get_reasoner()
+        reasoning = await reasoner.generate_decision(
+            issue=issue,
+            evidence=issue_evidence,
+            context={"total_rows": len(session.dataset.records)}
+        )
+        verification = verify_claims(reasoning, issue, issue_evidence)
+        valid_set = set(verification.valid_citations)
+        cited_evidence = [ev for ev in issue_evidence if ev.get("evidence_id") in valid_set]
+        if not cited_evidence:
+            cited_evidence = issue_evidence
+
+        return {
+            "analysis_id": analysis_id,
+            "expires_at": metadata["expires_at"],
+            "issue_id": issue_id,
+            "issue": issue,
+            "ai_available": True,
+            "ai_error": None,
+            "reasoning": reasoning.model_dump(),
+            "verification": verification.model_dump(),
+            "cited_evidence": cited_evidence
+        }
+    except ProviderError as exc:
+        return {
+            "analysis_id": analysis_id,
+            "expires_at": metadata["expires_at"],
+            "issue_id": issue_id,
+            "issue": issue,
+            "ai_available": False,
+            "ai_error": str(exc.message),
+            "reasoning": None,
+            "verification": {
+                "status": "unverified",
+                "details": [f"AI decision reasoning unavailable: {exc.message}"],
+                "valid_citations": [],
+                "invalid_citations": []
+            },
+            "cited_evidence": issue_evidence
+        }
+
+
+@router.post("/{analysis_id}/decisions/{issue_id}")
+async def decision_by_issue_id(analysis_id: str, issue_id: str, request: Request):
+    return await _process_decision(analysis_id, issue_id, request)
+
+
+@router.post("/{analysis_id}/decisions")
+async def decision_body(analysis_id: str, request: Request):
+    try:
+        body = await request.json()
+        issue_id = body.get("issue_id")
+        if not issue_id:
+            raise ValueError
+    except Exception:
+        raise AnalysisError("invalid_request_body", "Request body must be JSON containing 'issue_id'.", 400) from None
+    return await _process_decision(analysis_id, issue_id, request)
+
 
 
 @router.post("/upload", status_code=201)
