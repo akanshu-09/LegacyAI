@@ -107,4 +107,4 @@ Generated local artifacts backend/.venv, Python/test caches, frontend/node_modul
 
 ## Handoff
 
-Phase 0 is complete. Phase 1 is not started. No manual action is required to finish Phase 0. Review these changes and commit when ready. The recommended next implementation task, only when requested, is Phase 1 early deployment to Vercel/Render using the boundaries in docs/ARCHITECTURE.md.
+Phase 0 is complete. This record describes the original Phase 0 validation. The roadmap was subsequently revised: Phase 1 covers ingestion, validation and analysis sessions, and Vercel/Render deployment is Phase 7. See ROADMAP.md for current status.

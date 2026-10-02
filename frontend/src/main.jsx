@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import './style.css';
+import Data from './pages/Data';
+import { apiBaseUrl } from './api';
 
-const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000').replace(/\/+$/, '');
-
-function App() {
+function Health() {
   const [status, setStatus] = useState('checking');
   const [attempt, setAttempt] = useState(0);
 
@@ -38,10 +38,6 @@ function App() {
   }, [attempt]);
 
   return (
-    <main>
-      <p>Phase 0 · Engineering foundation</p>
-      <h1>LegacyAI</h1>
-      <p>AI reasons about verified data — it does not replace the data.</p>
       <section aria-labelledby="connection-title">
         <h2 id="connection-title">Backend connection</h2>
         <p role="status" className={status}>
@@ -50,6 +46,26 @@ function App() {
         {status === 'disconnected' && <p>Start the backend and check your local API URL and CORS configuration, then retry.</p>}
         <button disabled={status === 'checking'} onClick={() => setAttempt((value) => value + 1)}>Check again</button>
       </section>
+  );
+}
+
+function App() {
+  const isData = window.location.pathname === '/data';
+  return (
+    <main>
+      <header>
+        <p className="eyebrow">Verified data. Traceable decisions.</p>
+        <h1>LegacyAI</h1>
+        <p>AI reasons about verified data — it does not replace the data.</p>
+        <nav aria-label="Main navigation">
+          <a href="/" aria-current={!isData ? 'page' : undefined}>Overview</a>
+          <a href="/data" aria-current={isData ? 'page' : undefined}>Data</a>
+        </nav>
+      </header>
+      {isData ? <Data /> : <>
+        <Health />
+        <section><h2>Start with trustworthy data</h2><p>Validate a CSV and inspect its dataset profile in a temporary analysis session.</p><a href="/data">Open data workspace →</a></section>
+      </>}
     </main>
   );
 }

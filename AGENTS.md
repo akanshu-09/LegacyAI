@@ -18,6 +18,8 @@
 
 Keep a React/Vite frontend and a FastAPI/Python modular monolith. Follow docs/ARCHITECTURE.md and ROADMAP.md. No authentication, database, vector database, RAG, LangChain, multi-agent runtime, Kafka, microservices, Kubernetes, neural-network forecasting, reinforcement learning, ERP integrations, or autonomous purchasing unless the roadmap is explicitly changed.
 
+Phase 1 covers ingestion, validation and bounded in-memory analysis sessions. Deployment is Phase 7, after the core vertical slice works locally. Preserve strict data contracts and explicit rejection/abstention; never silently repair questionable inputs.
+
 ## Verification
 
 From frontend/: `npm ci` and `npm run build`.

@@ -1,6 +1,6 @@
 # LegacyAI implementation roadmap
 
-Work in phase order. No deployment in Phase 0. Later modules below are plans, not implemented functionality. Global exclusions unless this roadmap is explicitly changed: authentication, any database, vector database, RAG, LangChain, multi-agent runtime, Kafka/streaming, microservices, Kubernetes, neural-network forecasting, reinforcement learning, ERP integrations, autonomous purchasing.
+Work in phase order. Deployment follows the complete core product vertical slice locally, in Phase 7, before UX polish/reliability/submission. Later modules below are plans, not implemented functionality. Global exclusions unless this roadmap is explicitly changed: authentication, any database, vector database, RAG, LangChain, multi-agent runtime, Kafka/streaming, microservices, Kubernetes, neural-network forecasting, reinforcement learning, ERP integrations, autonomous purchasing.
 
 ## Phase 0 — Foundation
 - Objective: establish a reproducible React/Vite + FastAPI monorepo.
@@ -10,29 +10,19 @@ Work in phase order. No deployment in Phase 0. Later modules below are plans, no
 - Required tests: health payload/status, allowed/disallowed CORS origins, frontend build, live browser connection/failure/retry, secret/ignore checks.
 - Out of scope: deployment and all business/AI features.
 - Completion status: complete; locally validated on 2026-10-02. See docs/PHASE0_VALIDATION.md.
-- Handoff notes: all Phase 0 gates passed; see docs/PHASE0_VALIDATION.md for commands, evidence and the upstream test warning. Stop here until Phase 1 is requested.
+- Handoff notes: all Phase 0 gates passed; see docs/PHASE0_VALIDATION.md for commands, evidence and the upstream test warning. The revised Phase 1 is ingestion, validation and analysis sessions.
 
-## Phase 1 — Early Deployment
-- Objective: validate the split hosting architecture early.
-- Functionality: Vercel frontend, Render backend, production environment/CORS configuration and health checks.
-- Expected files/modules: deployment configuration as needed, docs/DEPLOYMENT.md, README updates.
-- Acceptance criteria: public HTTPS frontend reaches backend health endpoint; secrets remain server-side; deployment is reproducible.
-- Required tests: deployed health, browser CORS/connectivity, frontend build, backend regression tests.
-- Out of scope: ingestion, analytics, AI, new infrastructure beyond Vercel/Render.
-- Completion status: not started.
-- Handoff notes: use frontend/ and backend/ as service roots; document URLs, environment variables and rollback procedure.
-
-## Phase 2 — Data Ingestion & Validation
+## Phase 1 — Data Ingestion, Validation & Analysis Sessions
 - Objective: establish trusted input data and bounded temporary sessions.
-- Functionality: sales/inventory CSV upload, explicit schemas/units, validation errors, size limits, temporary session isolation/expiry, synthetic examples.
+- Functionality: V1 sales/inventory CSV upload and Load Demo Business, explicit schemas/units, normalization/quality profiles, structured validation errors, size limits, temporary session isolation/expiry and synthetic examples.
 - Expected files/modules: backend/app/ingestion/, backend/app/sessions/, frontend/src/pages/Data.jsx, data/, docs/DATA_CONTRACT.md.
-- Acceptance criteria: valid files normalize reproducibly; malformed/unsupported inputs fail clearly; sessions are isolated and expire.
+- Acceptance criteria: valid files normalize reproducibly; malformed/unsupported inputs fail clearly; sessions are isolated and expire; frontend upload/demo work end-to-end; frontend production build and backend tests pass; /health still works; no secrets/local artifacts are tracked.
 - Required tests: missing columns, types, empty files, duplicate rows, dates, invalid quantities, size limits, cleanup and session isolation.
 - Out of scope: authoritative analytics, issue detection, AI, persistent database.
-- Completion status: not started.
-- Handoff notes: freeze versioned data contracts and document missing-data policies before analytics work.
+- Completion status: complete; locally validated on 2026-10-02. All completion gates passed; see docs/PHASE1_VALIDATION.md.
+- Handoff notes: V1 contract and missing/duplicate policies are documented in docs/DATA_CONTRACT.md. Phase 2 must use immutable normalized backend records and Decimal money, distinguish inventory snapshots from sales flows, and attach results to the existing isolated sessions with their absolute expiry. Retain the documented 2 MiB/10,000-row and session-capacity bounds. No analytics/AI/deployment is implemented. Stop until Phase 2 is requested.
 
-## Phase 3 — Deterministic Analytics
+## Phase 2 — Deterministic Business Analytics
 - Objective: compute trusted business metrics in Python.
 - Functionality: defined sales/inventory aggregations with units, windows, assumptions and supported-data checks.
 - Expected files/modules: backend/app/analytics/, backend/tests/test_analytics.py, docs/METRICS.md, frontend/src/pages/Insights.jsx.
@@ -42,7 +32,7 @@ Work in phase order. No deployment in Phase 0. Later modules below are plans, no
 - Completion status: not started.
 - Handoff notes: document exact formulas and provenance needed by evidence generation.
 
-## Phase 4 — Issue Detection & Evidence
+## Phase 3 — Issue Detection & Evidence
 - Objective: turn trusted metrics into traceable issues.
 - Functionality: deterministic rule detectors, explicit thresholds, evidence IDs and source/metric references.
 - Expected files/modules: backend/app/detectors/, backend/app/evidence/, frontend/src/pages/Decisions.jsx, frontend/src/pages/DecisionDetail.jsx.
@@ -52,7 +42,7 @@ Work in phase order. No deployment in Phase 0. Later modules below are plans, no
 - Completion status: not started.
 - Handoff notes: version the evidence contract and define allowable numerical claims before AI integration.
 
-## Phase 5 — AI Decision Engine + Claim Verification
+## Phase 4 — AI Decision Engine + Claim Verification
 - Objective: generate recommendations grounded in verified evidence.
 - Functionality: backend-only Groq integration, structured outputs, independent numerical/evidence claim checks, abstention and provider failure handling.
 - Expected files/modules: backend/app/reasoning/, backend/app/verification/, backend/app/schemas/, docs/AI_CONTRACT.md.
@@ -62,7 +52,7 @@ Work in phase order. No deployment in Phase 0. Later modules below are plans, no
 - Completion status: not started.
 - Handoff notes: preserve raw/verified distinction; record validation policy and error behavior for Ask.
 
-## Phase 6 — Ask LegacyAI
+## Phase 5 — Ask LegacyAI
 - Objective: answer supported questions about the active verified dataset.
 - Functionality: /ask interface, bounded evidence selection and verified answers with citations; unsupported questions abstain.
 - Expected files/modules: backend/app/ask/, frontend/src/pages/Ask.jsx, backend/tests/test_ask.py.
@@ -72,7 +62,7 @@ Work in phase order. No deployment in Phase 0. Later modules below are plans, no
 - Completion status: not started.
 - Handoff notes: reuse established verification; do not introduce a second numerical source of truth.
 
-## Phase 7 — What-If Simulator
+## Phase 6 — What-If Simulator
 - Objective: explore transparent hypothetical business changes.
 - Functionality: deterministic scenario inputs/results, baseline comparison, explicit assumptions and hypothetical labels.
 - Expected files/modules: backend/app/simulation/, frontend/src/pages/Simulator.jsx, docs/SIMULATION.md.
@@ -81,6 +71,16 @@ Work in phase order. No deployment in Phase 0. Later modules below are plans, no
 - Out of scope: predictive neural models, reinforcement learning, autonomous purchasing.
 - Completion status: not started.
 - Handoff notes: document scenario limitations and units for UX polish.
+
+## Phase 7 — Deployment
+- Objective: validate split hosting after the complete core vertical slice works locally.
+- Functionality: Vercel frontend, Render backend, production environment/CORS configuration and health checks.
+- Expected files/modules: deployment configuration as needed, docs/DEPLOYMENT.md, README updates.
+- Acceptance criteria: public HTTPS frontend reaches backend health endpoint; secrets remain server-side; deployment is reproducible; the completed upload-to-simulation workflows work in the hosted environment.
+- Required tests: deployed health, browser CORS/connectivity, frontend build, backend regression tests and deployed core workflow smoke tests.
+- Out of scope: new ingestion/analytics/AI features, new infrastructure beyond Vercel/Render and final UX polish.
+- Completion status: not started.
+- Handoff notes: use frontend/ and backend/ as service roots; document URLs, environment variables and rollback procedure; preserve bounded temporary-session semantics.
 
 ## Phase 8 — UX Polish
 - Objective: make the verified workflows clear and cohesive.

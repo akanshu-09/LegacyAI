@@ -1,0 +1,541 @@
+date,product_id,product_name,category,units_sold,revenue,inventory,unit_price,supplier,lead_time_days
+2026-01-01,P-001,Cedar Notebook,Stationery,22,264.00,220,12.00,Paper Supply,7
+2026-01-01,P-002,Harbor Pen Set,Stationery,9,72.00,70,8.00,Paper Supply,7
+2026-01-01,P-003,Summit Mug,Home,12,216.00,650,18.00,Home Supply,14
+2026-01-01,P-004,Meadow Tote,Accessories,5,120.00,180,24.00,Textile Supply,21
+2026-01-01,P-005,Orbit Desk Lamp,Home,10,450.00,250,45.00,Home Supply,14
+2026-01-01,P-006,Trail Bottle,Accessories,11,330.00,210,30.00,Textile Supply,21
+2026-01-02,P-001,Cedar Notebook,Stationery,22,264.00,219,12.00,Paper Supply,7
+2026-01-02,P-002,Harbor Pen Set,Stationery,10,80.00,69,8.00,Paper Supply,7
+2026-01-02,P-003,Summit Mug,Home,13,234.00,652,18.00,Home Supply,14
+2026-01-02,P-004,Meadow Tote,Accessories,6,144.00,180,24.00,Textile Supply,21
+2026-01-02,P-005,Orbit Desk Lamp,Home,11,495.00,250,45.00,Home Supply,14
+2026-01-02,P-006,Trail Bottle,Accessories,12,360.00,210,30.00,Textile Supply,21
+2026-01-03,P-001,Cedar Notebook,Stationery,22,264.00,218,12.00,Paper Supply,7
+2026-01-03,P-002,Harbor Pen Set,Stationery,11,88.00,68,8.00,Paper Supply,7
+2026-01-03,P-003,Summit Mug,Home,14,252.00,654,18.00,Home Supply,14
+2026-01-03,P-004,Meadow Tote,Accessories,7,168.00,180,24.00,Textile Supply,21
+2026-01-03,P-005,Orbit Desk Lamp,Home,12,540.00,250,45.00,Home Supply,14
+2026-01-03,P-006,Trail Bottle,Accessories,13,390.00,210,30.00,Textile Supply,21
+2026-01-04,P-001,Cedar Notebook,Stationery,22,264.00,217,12.00,Paper Supply,7
+2026-01-04,P-002,Harbor Pen Set,Stationery,12,96.00,67,8.00,Paper Supply,7
+2026-01-04,P-003,Summit Mug,Home,15,270.00,656,18.00,Home Supply,14
+2026-01-04,P-004,Meadow Tote,Accessories,5,120.00,180,24.00,Textile Supply,21
+2026-01-04,P-005,Orbit Desk Lamp,Home,10,450.00,250,45.00,Home Supply,14
+2026-01-04,P-006,Trail Bottle,Accessories,14,420.00,210,30.00,Textile Supply,21
+2026-01-05,P-001,Cedar Notebook,Stationery,22,264.00,216,12.00,Paper Supply,7
+2026-01-05,P-002,Harbor Pen Set,Stationery,9,72.00,66,8.00,Paper Supply,7
+2026-01-05,P-003,Summit Mug,Home,16,288.00,658,18.00,Home Supply,14
+2026-01-05,P-004,Meadow Tote,Accessories,6,144.00,180,24.00,Textile Supply,21
+2026-01-05,P-005,Orbit Desk Lamp,Home,11,495.00,250,45.00,Home Supply,14
+2026-01-05,P-006,Trail Bottle,Accessories,11,330.00,210,30.00,Textile Supply,21
+2026-01-06,P-001,Cedar Notebook,Stationery,21,252.00,215,12.00,Paper Supply,7
+2026-01-06,P-002,Harbor Pen Set,Stationery,10,80.00,65,8.00,Paper Supply,7
+2026-01-06,P-003,Summit Mug,Home,12,216.00,660,18.00,Home Supply,14
+2026-01-06,P-004,Meadow Tote,Accessories,7,168.00,180,24.00,Textile Supply,21
+2026-01-06,P-005,Orbit Desk Lamp,Home,12,540.00,250,45.00,Home Supply,14
+2026-01-06,P-006,Trail Bottle,Accessories,12,360.00,210,30.00,Textile Supply,21
+2026-01-07,P-001,Cedar Notebook,Stationery,21,252.00,214,12.00,Paper Supply,7
+2026-01-07,P-002,Harbor Pen Set,Stationery,11,88.00,64,8.00,Paper Supply,7
+2026-01-07,P-003,Summit Mug,Home,13,234.00,662,18.00,Home Supply,14
+2026-01-07,P-004,Meadow Tote,Accessories,5,120.00,180,24.00,Textile Supply,21
+2026-01-07,P-005,Orbit Desk Lamp,Home,10,450.00,250,45.00,Home Supply,14
+2026-01-07,P-006,Trail Bottle,Accessories,13,390.00,210,30.00,Textile Supply,21
+2026-01-08,P-001,Cedar Notebook,Stationery,21,252.00,213,12.00,Paper Supply,7
+2026-01-08,P-002,Harbor Pen Set,Stationery,12,96.00,63,8.00,Paper Supply,7
+2026-01-08,P-003,Summit Mug,Home,14,252.00,664,18.00,Home Supply,14
+2026-01-08,P-004,Meadow Tote,Accessories,6,144.00,180,24.00,Textile Supply,21
+2026-01-08,P-005,Orbit Desk Lamp,Home,11,495.00,250,45.00,Home Supply,14
+2026-01-08,P-006,Trail Bottle,Accessories,14,420.00,210,30.00,Textile Supply,21
+2026-01-09,P-001,Cedar Notebook,Stationery,21,252.00,212,12.00,Paper Supply,7
+2026-01-09,P-002,Harbor Pen Set,Stationery,9,72.00,62,8.00,Paper Supply,7
+2026-01-09,P-003,Summit Mug,Home,15,270.00,666,18.00,Home Supply,14
+2026-01-09,P-004,Meadow Tote,Accessories,7,168.00,180,24.00,Textile Supply,21
+2026-01-09,P-005,Orbit Desk Lamp,Home,12,540.00,250,45.00,Home Supply,14
+2026-01-09,P-006,Trail Bottle,Accessories,11,330.00,210,30.00,Textile Supply,21
+2026-01-10,P-001,Cedar Notebook,Stationery,21,252.00,211,12.00,Paper Supply,7
+2026-01-10,P-002,Harbor Pen Set,Stationery,10,80.00,61,8.00,Paper Supply,7
+2026-01-10,P-003,Summit Mug,Home,16,288.00,668,18.00,Home Supply,14
+2026-01-10,P-004,Meadow Tote,Accessories,5,120.00,180,24.00,Textile Supply,21
+2026-01-10,P-005,Orbit Desk Lamp,Home,10,450.00,250,45.00,Home Supply,14
+2026-01-10,P-006,Trail Bottle,Accessories,12,360.00,210,30.00,Textile Supply,21
+2026-01-11,P-001,Cedar Notebook,Stationery,20,240.00,210,12.00,Paper Supply,7
+2026-01-11,P-002,Harbor Pen Set,Stationery,11,88.00,60,8.00,Paper Supply,7
+2026-01-11,P-003,Summit Mug,Home,12,216.00,670,18.00,Home Supply,14
+2026-01-11,P-004,Meadow Tote,Accessories,6,144.00,180,24.00,Textile Supply,21
+2026-01-11,P-005,Orbit Desk Lamp,Home,11,495.00,250,45.00,Home Supply,14
+2026-01-11,P-006,Trail Bottle,Accessories,13,390.00,210,30.00,Textile Supply,21
+2026-01-12,P-001,Cedar Notebook,Stationery,20,240.00,209,12.00,Paper Supply,7
+2026-01-12,P-002,Harbor Pen Set,Stationery,12,96.00,59,8.00,Paper Supply,7
+2026-01-12,P-003,Summit Mug,Home,13,234.00,672,18.00,Home Supply,14
+2026-01-12,P-004,Meadow Tote,Accessories,7,168.00,180,24.00,Textile Supply,21
+2026-01-12,P-005,Orbit Desk Lamp,Home,12,540.00,250,45.00,Home Supply,14
+2026-01-12,P-006,Trail Bottle,Accessories,14,420.00,210,30.00,Textile Supply,21
+2026-01-13,P-001,Cedar Notebook,Stationery,20,240.00,208,12.00,Paper Supply,7
+2026-01-13,P-002,Harbor Pen Set,Stationery,9,72.00,58,8.00,Paper Supply,7
+2026-01-13,P-003,Summit Mug,Home,14,252.00,674,18.00,Home Supply,14
+2026-01-13,P-004,Meadow Tote,Accessories,5,120.00,180,24.00,Textile Supply,21
+2026-01-13,P-005,Orbit Desk Lamp,Home,10,450.00,250,45.00,Home Supply,14
+2026-01-13,P-006,Trail Bottle,Accessories,11,330.00,210,30.00,Textile Supply,21
+2026-01-14,P-001,Cedar Notebook,Stationery,20,240.00,207,12.00,Paper Supply,7
+2026-01-14,P-002,Harbor Pen Set,Stationery,10,80.00,57,8.00,Paper Supply,7
+2026-01-14,P-003,Summit Mug,Home,15,270.00,676,18.00,Home Supply,14
+2026-01-14,P-004,Meadow Tote,Accessories,6,144.00,180,24.00,Textile Supply,21
+2026-01-14,P-005,Orbit Desk Lamp,Home,11,495.00,250,45.00,Home Supply,14
+2026-01-14,P-006,Trail Bottle,Accessories,12,360.00,210,30.00,Textile Supply,21
+2026-01-15,P-001,Cedar Notebook,Stationery,20,240.00,206,12.00,Paper Supply,7
+2026-01-15,P-002,Harbor Pen Set,Stationery,11,88.00,56,8.00,Paper Supply,7
+2026-01-15,P-003,Summit Mug,Home,16,288.00,678,18.00,Home Supply,14
+2026-01-15,P-004,Meadow Tote,Accessories,7,168.00,180,24.00,Textile Supply,21
+2026-01-15,P-005,Orbit Desk Lamp,Home,12,540.00,250,45.00,Home Supply,14
+2026-01-15,P-006,Trail Bottle,Accessories,13,390.00,210,30.00,Textile Supply,21
+2026-01-16,P-001,Cedar Notebook,Stationery,19,228.00,205,12.00,Paper Supply,7
+2026-01-16,P-002,Harbor Pen Set,Stationery,12,96.00,55,8.00,Paper Supply,7
+2026-01-16,P-003,Summit Mug,Home,12,216.00,680,18.00,Home Supply,14
+2026-01-16,P-004,Meadow Tote,Accessories,5,120.00,180,24.00,Textile Supply,21
+2026-01-16,P-005,Orbit Desk Lamp,Home,10,450.00,250,45.00,Home Supply,14
+2026-01-16,P-006,Trail Bottle,Accessories,14,420.00,210,30.00,Textile Supply,21
+2026-01-17,P-001,Cedar Notebook,Stationery,19,228.00,204,12.00,Paper Supply,7
+2026-01-17,P-002,Harbor Pen Set,Stationery,9,72.00,54,8.00,Paper Supply,7
+2026-01-17,P-003,Summit Mug,Home,13,234.00,682,18.00,Home Supply,14
+2026-01-17,P-004,Meadow Tote,Accessories,6,144.00,180,24.00,Textile Supply,21
+2026-01-17,P-005,Orbit Desk Lamp,Home,11,495.00,250,45.00,Home Supply,14
+2026-01-17,P-006,Trail Bottle,Accessories,11,330.00,210,30.00,Textile Supply,21
+2026-01-18,P-001,Cedar Notebook,Stationery,19,228.00,203,12.00,Paper Supply,7
+2026-01-18,P-002,Harbor Pen Set,Stationery,10,80.00,53,8.00,Paper Supply,7
+2026-01-18,P-003,Summit Mug,Home,14,252.00,684,18.00,Home Supply,14
+2026-01-18,P-004,Meadow Tote,Accessories,7,168.00,180,24.00,Textile Supply,21
+2026-01-18,P-005,Orbit Desk Lamp,Home,12,540.00,250,45.00,Home Supply,14
+2026-01-18,P-006,Trail Bottle,Accessories,12,360.00,210,30.00,Textile Supply,21
+2026-01-19,P-001,Cedar Notebook,Stationery,19,228.00,202,12.00,Paper Supply,7
+2026-01-19,P-002,Harbor Pen Set,Stationery,11,88.00,52,8.00,Paper Supply,7
+2026-01-19,P-003,Summit Mug,Home,15,270.00,686,18.00,Home Supply,14
+2026-01-19,P-004,Meadow Tote,Accessories,5,120.00,180,24.00,Textile Supply,21
+2026-01-19,P-005,Orbit Desk Lamp,Home,10,450.00,250,45.00,Home Supply,14
+2026-01-19,P-006,Trail Bottle,Accessories,13,390.00,210,30.00,Textile Supply,21
+2026-01-20,P-001,Cedar Notebook,Stationery,19,228.00,201,12.00,Paper Supply,7
+2026-01-20,P-002,Harbor Pen Set,Stationery,12,96.00,51,8.00,Paper Supply,7
+2026-01-20,P-003,Summit Mug,Home,16,288.00,688,18.00,Home Supply,14
+2026-01-20,P-004,Meadow Tote,Accessories,6,144.00,180,24.00,Textile Supply,21
+2026-01-20,P-005,Orbit Desk Lamp,Home,11,495.00,250,45.00,Home Supply,14
+2026-01-20,P-006,Trail Bottle,Accessories,14,420.00,210,30.00,Textile Supply,21
+2026-01-21,P-001,Cedar Notebook,Stationery,18,216.00,200,12.00,Paper Supply,7
+2026-01-21,P-002,Harbor Pen Set,Stationery,9,72.00,50,8.00,Paper Supply,7
+2026-01-21,P-003,Summit Mug,Home,12,216.00,690,18.00,Home Supply,14
+2026-01-21,P-004,Meadow Tote,Accessories,7,168.00,180,24.00,Textile Supply,21
+2026-01-21,P-005,Orbit Desk Lamp,Home,12,540.00,250,45.00,Home Supply,14
+2026-01-21,P-006,Trail Bottle,Accessories,11,330.00,210,30.00,Textile Supply,21
+2026-01-22,P-001,Cedar Notebook,Stationery,18,216.00,199,12.00,Paper Supply,7
+2026-01-22,P-002,Harbor Pen Set,Stationery,10,80.00,49,8.00,Paper Supply,7
+2026-01-22,P-003,Summit Mug,Home,13,234.00,692,18.00,Home Supply,14
+2026-01-22,P-004,Meadow Tote,Accessories,5,120.00,180,24.00,Textile Supply,21
+2026-01-22,P-005,Orbit Desk Lamp,Home,10,450.00,250,45.00,Home Supply,14
+2026-01-22,P-006,Trail Bottle,Accessories,12,360.00,210,30.00,Textile Supply,21
+2026-01-23,P-001,Cedar Notebook,Stationery,18,216.00,198,12.00,Paper Supply,7
+2026-01-23,P-002,Harbor Pen Set,Stationery,11,88.00,48,8.00,Paper Supply,7
+2026-01-23,P-003,Summit Mug,Home,14,252.00,694,18.00,Home Supply,14
+2026-01-23,P-004,Meadow Tote,Accessories,6,144.00,180,24.00,Textile Supply,21
+2026-01-23,P-005,Orbit Desk Lamp,Home,11,495.00,250,45.00,Home Supply,14
+2026-01-23,P-006,Trail Bottle,Accessories,13,390.00,210,30.00,Textile Supply,21
+2026-01-24,P-001,Cedar Notebook,Stationery,18,216.00,197,12.00,Paper Supply,7
+2026-01-24,P-002,Harbor Pen Set,Stationery,12,96.00,47,8.00,Paper Supply,7
+2026-01-24,P-003,Summit Mug,Home,15,270.00,696,18.00,Home Supply,14
+2026-01-24,P-004,Meadow Tote,Accessories,7,168.00,180,24.00,Textile Supply,21
+2026-01-24,P-005,Orbit Desk Lamp,Home,12,540.00,250,45.00,Home Supply,14
+2026-01-24,P-006,Trail Bottle,Accessories,14,420.00,210,30.00,Textile Supply,21
+2026-01-25,P-001,Cedar Notebook,Stationery,18,216.00,196,12.00,Paper Supply,7
+2026-01-25,P-002,Harbor Pen Set,Stationery,9,72.00,46,8.00,Paper Supply,7
+2026-01-25,P-003,Summit Mug,Home,16,288.00,698,18.00,Home Supply,14
+2026-01-25,P-004,Meadow Tote,Accessories,5,120.00,180,24.00,Textile Supply,21
+2026-01-25,P-005,Orbit Desk Lamp,Home,10,450.00,250,45.00,Home Supply,14
+2026-01-25,P-006,Trail Bottle,Accessories,11,330.00,210,30.00,Textile Supply,21
+2026-01-26,P-001,Cedar Notebook,Stationery,17,204.00,195,12.00,Paper Supply,7
+2026-01-26,P-002,Harbor Pen Set,Stationery,10,80.00,45,8.00,Paper Supply,7
+2026-01-26,P-003,Summit Mug,Home,12,216.00,700,18.00,Home Supply,14
+2026-01-26,P-004,Meadow Tote,Accessories,6,144.00,180,24.00,Textile Supply,21
+2026-01-26,P-005,Orbit Desk Lamp,Home,11,495.00,250,45.00,Home Supply,14
+2026-01-26,P-006,Trail Bottle,Accessories,12,360.00,210,30.00,Textile Supply,21
+2026-01-27,P-001,Cedar Notebook,Stationery,17,204.00,194,12.00,Paper Supply,7
+2026-01-27,P-002,Harbor Pen Set,Stationery,11,88.00,44,8.00,Paper Supply,7
+2026-01-27,P-003,Summit Mug,Home,13,234.00,702,18.00,Home Supply,14
+2026-01-27,P-004,Meadow Tote,Accessories,7,168.00,180,24.00,Textile Supply,21
+2026-01-27,P-005,Orbit Desk Lamp,Home,12,540.00,250,45.00,Home Supply,14
+2026-01-27,P-006,Trail Bottle,Accessories,13,390.00,210,30.00,Textile Supply,21
+2026-01-28,P-001,Cedar Notebook,Stationery,17,204.00,193,12.00,Paper Supply,7
+2026-01-28,P-002,Harbor Pen Set,Stationery,12,96.00,43,8.00,Paper Supply,7
+2026-01-28,P-003,Summit Mug,Home,14,252.00,704,18.00,Home Supply,14
+2026-01-28,P-004,Meadow Tote,Accessories,5,120.00,180,24.00,Textile Supply,21
+2026-01-28,P-005,Orbit Desk Lamp,Home,10,450.00,250,45.00,Home Supply,14
+2026-01-28,P-006,Trail Bottle,Accessories,14,420.00,210,30.00,Textile Supply,21
+2026-01-29,P-001,Cedar Notebook,Stationery,17,204.00,192,12.00,Paper Supply,7
+2026-01-29,P-002,Harbor Pen Set,Stationery,9,72.00,42,8.00,Paper Supply,7
+2026-01-29,P-003,Summit Mug,Home,15,270.00,706,18.00,Home Supply,14
+2026-01-29,P-004,Meadow Tote,Accessories,6,144.00,180,24.00,Textile Supply,21
+2026-01-29,P-005,Orbit Desk Lamp,Home,11,495.00,250,45.00,Home Supply,14
+2026-01-29,P-006,Trail Bottle,Accessories,11,330.00,210,30.00,Textile Supply,21
+2026-01-30,P-001,Cedar Notebook,Stationery,17,204.00,191,12.00,Paper Supply,7
+2026-01-30,P-002,Harbor Pen Set,Stationery,10,80.00,41,8.00,Paper Supply,7
+2026-01-30,P-003,Summit Mug,Home,16,288.00,708,18.00,Home Supply,14
+2026-01-30,P-004,Meadow Tote,Accessories,7,168.00,180,24.00,Textile Supply,21
+2026-01-30,P-005,Orbit Desk Lamp,Home,12,540.00,250,45.00,Home Supply,14
+2026-01-30,P-006,Trail Bottle,Accessories,12,360.00,210,30.00,Textile Supply,21
+2026-01-31,P-001,Cedar Notebook,Stationery,16,192.00,190,12.00,Paper Supply,7
+2026-01-31,P-002,Harbor Pen Set,Stationery,11,88.00,40,8.00,Paper Supply,7
+2026-01-31,P-003,Summit Mug,Home,12,216.00,710,18.00,Home Supply,14
+2026-01-31,P-004,Meadow Tote,Accessories,5,120.00,180,24.00,Textile Supply,21
+2026-01-31,P-005,Orbit Desk Lamp,Home,10,450.00,250,45.00,Home Supply,14
+2026-01-31,P-006,Trail Bottle,Accessories,13,390.00,210,30.00,Textile Supply,21
+2026-02-01,P-001,Cedar Notebook,Stationery,16,192.00,189,12.00,Paper Supply,7
+2026-02-01,P-002,Harbor Pen Set,Stationery,12,96.00,39,8.00,Paper Supply,7
+2026-02-01,P-003,Summit Mug,Home,13,234.00,712,18.00,Home Supply,14
+2026-02-01,P-004,Meadow Tote,Accessories,6,144.00,180,24.00,Textile Supply,21
+2026-02-01,P-005,Orbit Desk Lamp,Home,11,495.00,250,45.00,Home Supply,14
+2026-02-01,P-006,Trail Bottle,Accessories,14,420.00,210,30.00,Textile Supply,21
+2026-02-02,P-001,Cedar Notebook,Stationery,16,192.00,188,12.00,Paper Supply,7
+2026-02-02,P-002,Harbor Pen Set,Stationery,9,72.00,38,8.00,Paper Supply,7
+2026-02-02,P-003,Summit Mug,Home,14,252.00,714,18.00,Home Supply,14
+2026-02-02,P-004,Meadow Tote,Accessories,7,168.00,180,24.00,Textile Supply,21
+2026-02-02,P-005,Orbit Desk Lamp,Home,12,540.00,250,45.00,Home Supply,14
+2026-02-02,P-006,Trail Bottle,Accessories,11,330.00,210,30.00,Textile Supply,21
+2026-02-03,P-001,Cedar Notebook,Stationery,16,192.00,187,12.00,Paper Supply,7
+2026-02-03,P-002,Harbor Pen Set,Stationery,10,80.00,37,8.00,Paper Supply,7
+2026-02-03,P-003,Summit Mug,Home,15,270.00,716,18.00,Home Supply,14
+2026-02-03,P-004,Meadow Tote,Accessories,5,120.00,180,24.00,Textile Supply,21
+2026-02-03,P-005,Orbit Desk Lamp,Home,10,450.00,250,45.00,Home Supply,14
+2026-02-03,P-006,Trail Bottle,Accessories,12,360.00,210,30.00,Textile Supply,21
+2026-02-04,P-001,Cedar Notebook,Stationery,16,192.00,186,12.00,Paper Supply,7
+2026-02-04,P-002,Harbor Pen Set,Stationery,11,88.00,36,8.00,Paper Supply,7
+2026-02-04,P-003,Summit Mug,Home,16,288.00,718,18.00,Home Supply,14
+2026-02-04,P-004,Meadow Tote,Accessories,6,144.00,180,24.00,Textile Supply,21
+2026-02-04,P-005,Orbit Desk Lamp,Home,11,495.00,250,45.00,Home Supply,14
+2026-02-04,P-006,Trail Bottle,Accessories,13,390.00,210,30.00,Textile Supply,21
+2026-02-05,P-001,Cedar Notebook,Stationery,15,180.00,185,12.00,Paper Supply,7
+2026-02-05,P-002,Harbor Pen Set,Stationery,12,96.00,35,8.00,Paper Supply,7
+2026-02-05,P-003,Summit Mug,Home,12,216.00,720,18.00,Home Supply,14
+2026-02-05,P-004,Meadow Tote,Accessories,7,168.00,180,24.00,Textile Supply,21
+2026-02-05,P-005,Orbit Desk Lamp,Home,12,540.00,250,45.00,Home Supply,14
+2026-02-05,P-006,Trail Bottle,Accessories,14,420.00,210,30.00,Textile Supply,21
+2026-02-06,P-001,Cedar Notebook,Stationery,15,180.00,184,12.00,Paper Supply,7
+2026-02-06,P-002,Harbor Pen Set,Stationery,9,72.00,34,8.00,Paper Supply,7
+2026-02-06,P-003,Summit Mug,Home,13,234.00,722,18.00,Home Supply,14
+2026-02-06,P-004,Meadow Tote,Accessories,5,120.00,180,24.00,Textile Supply,21
+2026-02-06,P-005,Orbit Desk Lamp,Home,10,450.00,250,45.00,Home Supply,14
+2026-02-06,P-006,Trail Bottle,Accessories,11,330.00,210,30.00,Textile Supply,21
+2026-02-07,P-001,Cedar Notebook,Stationery,15,180.00,183,12.00,Paper Supply,7
+2026-02-07,P-002,Harbor Pen Set,Stationery,10,80.00,33,8.00,Paper Supply,7
+2026-02-07,P-003,Summit Mug,Home,14,252.00,724,18.00,Home Supply,14
+2026-02-07,P-004,Meadow Tote,Accessories,6,144.00,180,24.00,Textile Supply,21
+2026-02-07,P-005,Orbit Desk Lamp,Home,11,495.00,250,45.00,Home Supply,14
+2026-02-07,P-006,Trail Bottle,Accessories,12,360.00,210,30.00,Textile Supply,21
+2026-02-08,P-001,Cedar Notebook,Stationery,15,180.00,182,12.00,Paper Supply,7
+2026-02-08,P-002,Harbor Pen Set,Stationery,11,88.00,32,8.00,Paper Supply,7
+2026-02-08,P-003,Summit Mug,Home,15,270.00,726,18.00,Home Supply,14
+2026-02-08,P-004,Meadow Tote,Accessories,7,168.00,180,24.00,Textile Supply,21
+2026-02-08,P-005,Orbit Desk Lamp,Home,12,540.00,250,45.00,Home Supply,14
+2026-02-08,P-006,Trail Bottle,Accessories,13,390.00,210,30.00,Textile Supply,21
+2026-02-09,P-001,Cedar Notebook,Stationery,15,180.00,181,12.00,Paper Supply,7
+2026-02-09,P-002,Harbor Pen Set,Stationery,12,96.00,31,8.00,Paper Supply,7
+2026-02-09,P-003,Summit Mug,Home,16,288.00,728,18.00,Home Supply,14
+2026-02-09,P-004,Meadow Tote,Accessories,5,120.00,180,24.00,Textile Supply,21
+2026-02-09,P-005,Orbit Desk Lamp,Home,10,450.00,250,45.00,Home Supply,14
+2026-02-09,P-006,Trail Bottle,Accessories,14,420.00,210,30.00,Textile Supply,21
+2026-02-10,P-001,Cedar Notebook,Stationery,14,168.00,180,12.00,Paper Supply,7
+2026-02-10,P-002,Harbor Pen Set,Stationery,9,72.00,30,8.00,Paper Supply,7
+2026-02-10,P-003,Summit Mug,Home,12,216.00,730,18.00,Home Supply,14
+2026-02-10,P-004,Meadow Tote,Accessories,6,144.00,180,24.00,Textile Supply,21
+2026-02-10,P-005,Orbit Desk Lamp,Home,11,495.00,250,45.00,Home Supply,14
+2026-02-10,P-006,Trail Bottle,Accessories,11,330.00,210,30.00,Textile Supply,21
+2026-02-11,P-001,Cedar Notebook,Stationery,14,168.00,179,12.00,Paper Supply,7
+2026-02-11,P-002,Harbor Pen Set,Stationery,10,80.00,29,8.00,Paper Supply,7
+2026-02-11,P-003,Summit Mug,Home,13,234.00,732,18.00,Home Supply,14
+2026-02-11,P-004,Meadow Tote,Accessories,7,168.00,180,24.00,Textile Supply,21
+2026-02-11,P-005,Orbit Desk Lamp,Home,12,540.00,250,45.00,Home Supply,14
+2026-02-11,P-006,Trail Bottle,Accessories,12,360.00,210,30.00,Textile Supply,21
+2026-02-12,P-001,Cedar Notebook,Stationery,14,168.00,178,12.00,Paper Supply,7
+2026-02-12,P-002,Harbor Pen Set,Stationery,11,88.00,28,8.00,Paper Supply,7
+2026-02-12,P-003,Summit Mug,Home,14,252.00,734,18.00,Home Supply,14
+2026-02-12,P-004,Meadow Tote,Accessories,5,120.00,180,24.00,Textile Supply,21
+2026-02-12,P-005,Orbit Desk Lamp,Home,10,450.00,250,45.00,Home Supply,14
+2026-02-12,P-006,Trail Bottle,Accessories,13,390.00,210,30.00,Textile Supply,21
+2026-02-13,P-001,Cedar Notebook,Stationery,14,168.00,177,12.00,Paper Supply,7
+2026-02-13,P-002,Harbor Pen Set,Stationery,12,96.00,27,8.00,Paper Supply,7
+2026-02-13,P-003,Summit Mug,Home,15,270.00,736,18.00,Home Supply,14
+2026-02-13,P-004,Meadow Tote,Accessories,6,144.00,180,24.00,Textile Supply,21
+2026-02-13,P-005,Orbit Desk Lamp,Home,11,495.00,250,45.00,Home Supply,14
+2026-02-13,P-006,Trail Bottle,Accessories,14,420.00,210,30.00,Textile Supply,21
+2026-02-14,P-001,Cedar Notebook,Stationery,14,168.00,176,12.00,Paper Supply,7
+2026-02-14,P-002,Harbor Pen Set,Stationery,9,72.00,26,8.00,Paper Supply,7
+2026-02-14,P-003,Summit Mug,Home,16,288.00,738,18.00,Home Supply,14
+2026-02-14,P-004,Meadow Tote,Accessories,7,168.00,180,24.00,Textile Supply,21
+2026-02-14,P-005,Orbit Desk Lamp,Home,12,540.00,250,45.00,Home Supply,14
+2026-02-14,P-006,Trail Bottle,Accessories,11,330.00,210,30.00,Textile Supply,21
+2026-02-15,P-001,Cedar Notebook,Stationery,13,156.00,175,12.00,Paper Supply,7
+2026-02-15,P-002,Harbor Pen Set,Stationery,10,80.00,25,8.00,Paper Supply,7
+2026-02-15,P-003,Summit Mug,Home,12,216.00,740,18.00,Home Supply,14
+2026-02-15,P-004,Meadow Tote,Accessories,5,120.00,180,24.00,Textile Supply,21
+2026-02-15,P-005,Orbit Desk Lamp,Home,10,450.00,250,45.00,Home Supply,14
+2026-02-15,P-006,Trail Bottle,Accessories,12,360.00,210,30.00,Textile Supply,21
+2026-02-16,P-001,Cedar Notebook,Stationery,13,156.00,174,12.00,Paper Supply,7
+2026-02-16,P-002,Harbor Pen Set,Stationery,11,88.00,24,8.00,Paper Supply,7
+2026-02-16,P-003,Summit Mug,Home,13,234.00,742,18.00,Home Supply,14
+2026-02-16,P-004,Meadow Tote,Accessories,6,144.00,180,24.00,Textile Supply,21
+2026-02-16,P-005,Orbit Desk Lamp,Home,11,495.00,250,45.00,Home Supply,14
+2026-02-16,P-006,Trail Bottle,Accessories,13,390.00,210,30.00,Textile Supply,21
+2026-02-17,P-001,Cedar Notebook,Stationery,13,156.00,173,12.00,Paper Supply,7
+2026-02-17,P-002,Harbor Pen Set,Stationery,12,96.00,23,8.00,Paper Supply,7
+2026-02-17,P-003,Summit Mug,Home,14,252.00,744,18.00,Home Supply,14
+2026-02-17,P-004,Meadow Tote,Accessories,7,168.00,180,24.00,Textile Supply,21
+2026-02-17,P-005,Orbit Desk Lamp,Home,12,540.00,250,45.00,Home Supply,14
+2026-02-17,P-006,Trail Bottle,Accessories,14,420.00,210,30.00,Textile Supply,21
+2026-02-18,P-001,Cedar Notebook,Stationery,13,156.00,172,12.00,Paper Supply,7
+2026-02-18,P-002,Harbor Pen Set,Stationery,9,72.00,22,8.00,Paper Supply,7
+2026-02-18,P-003,Summit Mug,Home,15,270.00,746,18.00,Home Supply,14
+2026-02-18,P-004,Meadow Tote,Accessories,5,120.00,180,24.00,Textile Supply,21
+2026-02-18,P-005,Orbit Desk Lamp,Home,10,450.00,250,45.00,Home Supply,14
+2026-02-18,P-006,Trail Bottle,Accessories,11,330.00,210,30.00,Textile Supply,21
+2026-02-19,P-001,Cedar Notebook,Stationery,13,156.00,171,12.00,Paper Supply,7
+2026-02-19,P-002,Harbor Pen Set,Stationery,10,80.00,21,8.00,Paper Supply,7
+2026-02-19,P-003,Summit Mug,Home,16,288.00,748,18.00,Home Supply,14
+2026-02-19,P-004,Meadow Tote,Accessories,6,144.00,180,24.00,Textile Supply,21
+2026-02-19,P-005,Orbit Desk Lamp,Home,11,495.00,250,45.00,Home Supply,14
+2026-02-19,P-006,Trail Bottle,Accessories,12,360.00,210,30.00,Textile Supply,21
+2026-02-20,P-001,Cedar Notebook,Stationery,12,144.00,170,12.00,Paper Supply,7
+2026-02-20,P-002,Harbor Pen Set,Stationery,11,88.00,20,8.00,Paper Supply,7
+2026-02-20,P-003,Summit Mug,Home,12,216.00,750,18.00,Home Supply,14
+2026-02-20,P-004,Meadow Tote,Accessories,7,168.00,180,24.00,Textile Supply,21
+2026-02-20,P-005,Orbit Desk Lamp,Home,12,540.00,250,45.00,Home Supply,14
+2026-02-20,P-006,Trail Bottle,Accessories,13,390.00,210,30.00,Textile Supply,21
+2026-02-21,P-001,Cedar Notebook,Stationery,12,144.00,169,12.00,Paper Supply,7
+2026-02-21,P-002,Harbor Pen Set,Stationery,12,96.00,19,8.00,Paper Supply,7
+2026-02-21,P-003,Summit Mug,Home,13,234.00,752,18.00,Home Supply,14
+2026-02-21,P-004,Meadow Tote,Accessories,5,120.00,180,24.00,Textile Supply,21
+2026-02-21,P-005,Orbit Desk Lamp,Home,10,450.00,250,45.00,Home Supply,14
+2026-02-21,P-006,Trail Bottle,Accessories,14,420.00,210,30.00,Textile Supply,21
+2026-02-22,P-001,Cedar Notebook,Stationery,12,144.00,168,12.00,Paper Supply,7
+2026-02-22,P-002,Harbor Pen Set,Stationery,9,72.00,18,8.00,Paper Supply,7
+2026-02-22,P-003,Summit Mug,Home,14,252.00,754,18.00,Home Supply,14
+2026-02-22,P-004,Meadow Tote,Accessories,6,144.00,180,24.00,Textile Supply,21
+2026-02-22,P-005,Orbit Desk Lamp,Home,11,495.00,250,45.00,Home Supply,14
+2026-02-22,P-006,Trail Bottle,Accessories,11,330.00,210,30.00,Textile Supply,21
+2026-02-23,P-001,Cedar Notebook,Stationery,12,144.00,167,12.00,Paper Supply,7
+2026-02-23,P-002,Harbor Pen Set,Stationery,10,80.00,17,8.00,Paper Supply,7
+2026-02-23,P-003,Summit Mug,Home,15,270.00,756,18.00,Home Supply,14
+2026-02-23,P-004,Meadow Tote,Accessories,7,168.00,180,24.00,Textile Supply,21
+2026-02-23,P-005,Orbit Desk Lamp,Home,12,540.00,250,45.00,Home Supply,14
+2026-02-23,P-006,Trail Bottle,Accessories,12,360.00,210,30.00,Textile Supply,21
+2026-02-24,P-001,Cedar Notebook,Stationery,12,144.00,166,12.00,Paper Supply,7
+2026-02-24,P-002,Harbor Pen Set,Stationery,11,88.00,16,8.00,Paper Supply,7
+2026-02-24,P-003,Summit Mug,Home,16,288.00,758,18.00,Home Supply,14
+2026-02-24,P-004,Meadow Tote,Accessories,5,120.00,180,24.00,Textile Supply,21
+2026-02-24,P-005,Orbit Desk Lamp,Home,10,450.00,250,45.00,Home Supply,14
+2026-02-24,P-006,Trail Bottle,Accessories,13,390.00,210,30.00,Textile Supply,21
+2026-02-25,P-001,Cedar Notebook,Stationery,11,132.00,165,12.00,Paper Supply,7
+2026-02-25,P-002,Harbor Pen Set,Stationery,12,96.00,15,8.00,Paper Supply,7
+2026-02-25,P-003,Summit Mug,Home,12,216.00,760,18.00,Home Supply,14
+2026-02-25,P-004,Meadow Tote,Accessories,6,144.00,180,24.00,Textile Supply,21
+2026-02-25,P-005,Orbit Desk Lamp,Home,11,495.00,250,45.00,Home Supply,14
+2026-02-25,P-006,Trail Bottle,Accessories,14,420.00,210,30.00,Textile Supply,21
+2026-02-26,P-001,Cedar Notebook,Stationery,11,132.00,164,12.00,Paper Supply,7
+2026-02-26,P-002,Harbor Pen Set,Stationery,9,72.00,14,8.00,Paper Supply,7
+2026-02-26,P-003,Summit Mug,Home,13,234.00,762,18.00,Home Supply,14
+2026-02-26,P-004,Meadow Tote,Accessories,7,168.00,180,24.00,Textile Supply,21
+2026-02-26,P-005,Orbit Desk Lamp,Home,12,540.00,250,45.00,Home Supply,14
+2026-02-26,P-006,Trail Bottle,Accessories,11,330.00,210,30.00,Textile Supply,21
+2026-02-27,P-001,Cedar Notebook,Stationery,11,132.00,163,12.00,Paper Supply,7
+2026-02-27,P-002,Harbor Pen Set,Stationery,10,80.00,13,8.00,Paper Supply,7
+2026-02-27,P-003,Summit Mug,Home,14,252.00,764,18.00,Home Supply,14
+2026-02-27,P-004,Meadow Tote,Accessories,5,120.00,180,24.00,Textile Supply,21
+2026-02-27,P-005,Orbit Desk Lamp,Home,10,450.00,250,45.00,Home Supply,14
+2026-02-27,P-006,Trail Bottle,Accessories,12,360.00,210,30.00,Textile Supply,21
+2026-02-28,P-001,Cedar Notebook,Stationery,11,132.00,162,12.00,Paper Supply,7
+2026-02-28,P-002,Harbor Pen Set,Stationery,11,88.00,12,8.00,Paper Supply,7
+2026-02-28,P-003,Summit Mug,Home,15,270.00,766,18.00,Home Supply,14
+2026-02-28,P-004,Meadow Tote,Accessories,6,144.00,180,24.00,Textile Supply,21
+2026-02-28,P-005,Orbit Desk Lamp,Home,11,495.00,250,45.00,Home Supply,14
+2026-02-28,P-006,Trail Bottle,Accessories,13,390.00,210,30.00,Textile Supply,21
+2026-03-01,P-001,Cedar Notebook,Stationery,11,132.00,161,12.00,Paper Supply,7
+2026-03-01,P-002,Harbor Pen Set,Stationery,12,96.00,11,8.00,Paper Supply,7
+2026-03-01,P-003,Summit Mug,Home,16,288.00,768,18.00,Home Supply,14
+2026-03-01,P-004,Meadow Tote,Accessories,7,168.00,180,24.00,Textile Supply,21
+2026-03-01,P-005,Orbit Desk Lamp,Home,12,540.00,250,45.00,Home Supply,14
+2026-03-01,P-006,Trail Bottle,Accessories,14,420.00,210,30.00,Textile Supply,21
+2026-03-02,P-001,Cedar Notebook,Stationery,10,120.00,160,12.00,Paper Supply,7
+2026-03-02,P-002,Harbor Pen Set,Stationery,9,72.00,10,8.00,Paper Supply,7
+2026-03-02,P-003,Summit Mug,Home,12,216.00,770,18.00,Home Supply,14
+2026-03-02,P-004,Meadow Tote,Accessories,5,120.00,180,24.00,Textile Supply,21
+2026-03-02,P-005,Orbit Desk Lamp,Home,10,450.00,250,45.00,Home Supply,14
+2026-03-02,P-006,Trail Bottle,Accessories,11,330.00,210,30.00,Textile Supply,21
+2026-03-03,P-001,Cedar Notebook,Stationery,10,120.00,159,12.00,Paper Supply,7
+2026-03-03,P-002,Harbor Pen Set,Stationery,10,80.00,9,8.00,Paper Supply,7
+2026-03-03,P-003,Summit Mug,Home,13,234.00,772,18.00,Home Supply,14
+2026-03-03,P-004,Meadow Tote,Accessories,6,144.00,180,24.00,Textile Supply,21
+2026-03-03,P-005,Orbit Desk Lamp,Home,25,1125.00,90,45.00,Home Supply,14
+2026-03-03,P-006,Trail Bottle,Accessories,12,360.00,210,30.00,Textile Supply,21
+2026-03-04,P-001,Cedar Notebook,Stationery,10,120.00,158,12.00,Paper Supply,7
+2026-03-04,P-002,Harbor Pen Set,Stationery,11,88.00,8,8.00,Paper Supply,7
+2026-03-04,P-003,Summit Mug,Home,14,252.00,774,18.00,Home Supply,14
+2026-03-04,P-004,Meadow Tote,Accessories,7,168.00,180,24.00,Textile Supply,21
+2026-03-04,P-005,Orbit Desk Lamp,Home,26,1170.00,90,45.00,Home Supply,14
+2026-03-04,P-006,Trail Bottle,Accessories,13,390.00,210,30.00,Textile Supply,21
+2026-03-05,P-001,Cedar Notebook,Stationery,10,120.00,157,12.00,Paper Supply,7
+2026-03-05,P-002,Harbor Pen Set,Stationery,12,96.00,7,8.00,Paper Supply,7
+2026-03-05,P-003,Summit Mug,Home,15,270.00,776,18.00,Home Supply,14
+2026-03-05,P-004,Meadow Tote,Accessories,5,120.00,180,24.00,Textile Supply,21
+2026-03-05,P-005,Orbit Desk Lamp,Home,27,1215.00,90,45.00,Home Supply,14
+2026-03-05,P-006,Trail Bottle,Accessories,14,420.00,210,30.00,Textile Supply,21
+2026-03-06,P-001,Cedar Notebook,Stationery,10,120.00,156,12.00,Paper Supply,7
+2026-03-06,P-002,Harbor Pen Set,Stationery,9,72.00,6,8.00,Paper Supply,7
+2026-03-06,P-003,Summit Mug,Home,16,288.00,778,18.00,Home Supply,14
+2026-03-06,P-004,Meadow Tote,Accessories,6,144.00,180,24.00,Textile Supply,21
+2026-03-06,P-005,Orbit Desk Lamp,Home,28,1260.00,90,45.00,Home Supply,14
+2026-03-06,P-006,Trail Bottle,Accessories,11,330.00,210,30.00,Textile Supply,21
+2026-03-07,P-001,Cedar Notebook,Stationery,9,108.00,155,12.00,Paper Supply,7
+2026-03-07,P-002,Harbor Pen Set,Stationery,10,80.00,5,8.00,Paper Supply,7
+2026-03-07,P-003,Summit Mug,Home,12,216.00,780,18.00,Home Supply,14
+2026-03-07,P-004,Meadow Tote,Accessories,7,168.00,180,24.00,Textile Supply,21
+2026-03-07,P-005,Orbit Desk Lamp,Home,24,1080.00,90,45.00,Home Supply,14
+2026-03-07,P-006,Trail Bottle,Accessories,12,360.00,210,30.00,Textile Supply,21
+2026-03-08,P-001,Cedar Notebook,Stationery,9,108.00,154,12.00,Paper Supply,7
+2026-03-08,P-002,Harbor Pen Set,Stationery,11,88.00,4,8.00,Paper Supply,7
+2026-03-08,P-003,Summit Mug,Home,13,234.00,782,18.00,Home Supply,14
+2026-03-08,P-004,Meadow Tote,Accessories,5,120.00,180,24.00,Textile Supply,21
+2026-03-08,P-005,Orbit Desk Lamp,Home,25,1125.00,90,45.00,Home Supply,14
+2026-03-08,P-006,Trail Bottle,Accessories,13,390.00,210,30.00,Textile Supply,21
+2026-03-09,P-001,Cedar Notebook,Stationery,9,108.00,153,12.00,Paper Supply,7
+2026-03-09,P-002,Harbor Pen Set,Stationery,12,96.00,3,8.00,Paper Supply,7
+2026-03-09,P-003,Summit Mug,Home,14,252.00,784,18.00,Home Supply,14
+2026-03-09,P-004,Meadow Tote,Accessories,6,144.00,180,24.00,Textile Supply,21
+2026-03-09,P-005,Orbit Desk Lamp,Home,26,1170.00,90,45.00,Home Supply,14
+2026-03-09,P-006,Trail Bottle,Accessories,14,420.00,210,30.00,Textile Supply,21
+2026-03-10,P-001,Cedar Notebook,Stationery,9,108.00,152,12.00,Paper Supply,7
+2026-03-10,P-002,Harbor Pen Set,Stationery,9,72.00,2,8.00,Paper Supply,7
+2026-03-10,P-003,Summit Mug,Home,15,270.00,786,18.00,Home Supply,14
+2026-03-10,P-004,Meadow Tote,Accessories,7,168.00,180,24.00,Textile Supply,21
+2026-03-10,P-005,Orbit Desk Lamp,Home,27,1215.00,90,45.00,Home Supply,14
+2026-03-10,P-006,Trail Bottle,Accessories,11,330.00,210,30.00,Textile Supply,21
+2026-03-11,P-001,Cedar Notebook,Stationery,9,108.00,151,12.00,Paper Supply,7
+2026-03-11,P-002,Harbor Pen Set,Stationery,10,80.00,1,8.00,Paper Supply,7
+2026-03-11,P-003,Summit Mug,Home,16,288.00,788,18.00,Home Supply,14
+2026-03-11,P-004,Meadow Tote,Accessories,5,120.00,180,24.00,Textile Supply,21
+2026-03-11,P-005,Orbit Desk Lamp,Home,28,1260.00,90,45.00,Home Supply,14
+2026-03-11,P-006,Trail Bottle,Accessories,12,360.00,210,30.00,Textile Supply,21
+2026-03-12,P-001,Cedar Notebook,Stationery,8,96.00,150,12.00,Paper Supply,7
+2026-03-12,P-002,Harbor Pen Set,Stationery,11,88.00,0,8.00,Paper Supply,7
+2026-03-12,P-003,Summit Mug,Home,12,216.00,790,18.00,Home Supply,14
+2026-03-12,P-004,Meadow Tote,Accessories,6,144.00,180,24.00,Textile Supply,21
+2026-03-12,P-005,Orbit Desk Lamp,Home,24,1080.00,90,45.00,Home Supply,14
+2026-03-12,P-006,Trail Bottle,Accessories,13,390.00,210,30.00,Textile Supply,21
+2026-03-13,P-001,Cedar Notebook,Stationery,8,96.00,149,12.00,Paper Supply,7
+2026-03-13,P-002,Harbor Pen Set,Stationery,12,96.00,0,8.00,Paper Supply,7
+2026-03-13,P-003,Summit Mug,Home,13,234.00,792,18.00,Home Supply,14
+2026-03-13,P-004,Meadow Tote,Accessories,7,168.00,180,24.00,Textile Supply,21
+2026-03-13,P-005,Orbit Desk Lamp,Home,25,1125.00,90,45.00,Home Supply,14
+2026-03-13,P-006,Trail Bottle,Accessories,14,420.00,210,30.00,Textile Supply,21
+2026-03-14,P-001,Cedar Notebook,Stationery,8,96.00,148,12.00,Paper Supply,7
+2026-03-14,P-002,Harbor Pen Set,Stationery,9,72.00,0,8.00,Paper Supply,7
+2026-03-14,P-003,Summit Mug,Home,14,252.00,794,18.00,Home Supply,14
+2026-03-14,P-004,Meadow Tote,Accessories,5,120.00,180,24.00,Textile Supply,21
+2026-03-14,P-005,Orbit Desk Lamp,Home,26,1170.00,90,45.00,Home Supply,14
+2026-03-14,P-006,Trail Bottle,Accessories,60,1800.00,210,30.00,Textile Supply,21
+2026-03-15,P-001,Cedar Notebook,Stationery,8,96.00,147,12.00,Paper Supply,7
+2026-03-15,P-002,Harbor Pen Set,Stationery,10,80.00,0,8.00,Paper Supply,7
+2026-03-15,P-003,Summit Mug,Home,15,270.00,796,18.00,Home Supply,14
+2026-03-15,P-004,Meadow Tote,Accessories,6,144.00,180,24.00,Textile Supply,21
+2026-03-15,P-005,Orbit Desk Lamp,Home,27,1215.00,90,45.00,Home Supply,14
+2026-03-15,P-006,Trail Bottle,Accessories,12,360.00,210,30.00,Textile Supply,21
+2026-03-16,P-001,Cedar Notebook,Stationery,8,96.00,146,12.00,Paper Supply,7
+2026-03-16,P-002,Harbor Pen Set,Stationery,11,88.00,0,8.00,Paper Supply,7
+2026-03-16,P-003,Summit Mug,Home,16,288.00,798,18.00,Home Supply,14
+2026-03-16,P-004,Meadow Tote,Accessories,7,168.00,180,24.00,Textile Supply,21
+2026-03-16,P-005,Orbit Desk Lamp,Home,28,1260.00,90,45.00,Home Supply,14
+2026-03-16,P-006,Trail Bottle,Accessories,13,390.00,210,30.00,Textile Supply,21
+2026-03-17,P-001,Cedar Notebook,Stationery,7,84.00,145,12.00,Paper Supply,7
+2026-03-17,P-002,Harbor Pen Set,Stationery,12,96.00,0,8.00,Paper Supply,7
+2026-03-17,P-003,Summit Mug,Home,12,216.00,800,18.00,Home Supply,14
+2026-03-17,P-004,Meadow Tote,Accessories,5,120.00,180,24.00,Textile Supply,21
+2026-03-17,P-005,Orbit Desk Lamp,Home,24,1080.00,90,45.00,Home Supply,14
+2026-03-17,P-006,Trail Bottle,Accessories,14,420.00,210,30.00,Textile Supply,21
+2026-03-18,P-001,Cedar Notebook,Stationery,7,84.00,144,12.00,Paper Supply,7
+2026-03-18,P-002,Harbor Pen Set,Stationery,9,72.00,0,8.00,Paper Supply,7
+2026-03-18,P-003,Summit Mug,Home,13,234.00,802,18.00,Home Supply,14
+2026-03-18,P-004,Meadow Tote,Accessories,6,144.00,180,24.00,Textile Supply,21
+2026-03-18,P-005,Orbit Desk Lamp,Home,25,1125.00,90,45.00,Home Supply,14
+2026-03-18,P-006,Trail Bottle,Accessories,11,330.00,210,30.00,Textile Supply,21
+2026-03-19,P-001,Cedar Notebook,Stationery,7,84.00,143,12.00,Paper Supply,7
+2026-03-19,P-002,Harbor Pen Set,Stationery,10,80.00,0,8.00,Paper Supply,7
+2026-03-19,P-003,Summit Mug,Home,14,252.00,804,18.00,Home Supply,14
+2026-03-19,P-004,Meadow Tote,Accessories,7,168.00,180,24.00,Textile Supply,21
+2026-03-19,P-005,Orbit Desk Lamp,Home,26,1170.00,90,45.00,Home Supply,14
+2026-03-19,P-006,Trail Bottle,Accessories,12,360.00,210,30.00,Textile Supply,21
+2026-03-20,P-001,Cedar Notebook,Stationery,7,84.00,142,12.00,Paper Supply,7
+2026-03-20,P-002,Harbor Pen Set,Stationery,11,88.00,0,8.00,Paper Supply,7
+2026-03-20,P-003,Summit Mug,Home,15,270.00,806,18.00,Home Supply,14
+2026-03-20,P-004,Meadow Tote,Accessories,5,120.00,180,24.00,Textile Supply,21
+2026-03-20,P-005,Orbit Desk Lamp,Home,27,1215.00,90,45.00,Home Supply,14
+2026-03-20,P-006,Trail Bottle,Accessories,13,390.00,210,30.00,Textile Supply,21
+2026-03-21,P-001,Cedar Notebook,Stationery,7,84.00,141,12.00,Paper Supply,7
+2026-03-21,P-002,Harbor Pen Set,Stationery,12,96.00,0,8.00,Paper Supply,7
+2026-03-21,P-003,Summit Mug,Home,16,288.00,808,18.00,Home Supply,14
+2026-03-21,P-004,Meadow Tote,Accessories,6,144.00,180,24.00,Textile Supply,21
+2026-03-21,P-005,Orbit Desk Lamp,Home,28,1260.00,90,45.00,Home Supply,14
+2026-03-21,P-006,Trail Bottle,Accessories,14,420.00,210,30.00,Textile Supply,21
+2026-03-22,P-001,Cedar Notebook,Stationery,6,72.00,140,12.00,Paper Supply,7
+2026-03-22,P-002,Harbor Pen Set,Stationery,9,72.00,0,8.00,Paper Supply,7
+2026-03-22,P-003,Summit Mug,Home,12,216.00,810,18.00,Home Supply,14
+2026-03-22,P-004,Meadow Tote,Accessories,7,168.00,180,24.00,Textile Supply,21
+2026-03-22,P-005,Orbit Desk Lamp,Home,24,1080.00,90,45.00,Home Supply,14
+2026-03-22,P-006,Trail Bottle,Accessories,11,330.00,210,30.00,Textile Supply,21
+2026-03-23,P-001,Cedar Notebook,Stationery,6,72.00,139,12.00,Paper Supply,7
+2026-03-23,P-002,Harbor Pen Set,Stationery,10,80.00,0,8.00,Paper Supply,7
+2026-03-23,P-003,Summit Mug,Home,13,234.00,812,18.00,Home Supply,14
+2026-03-23,P-004,Meadow Tote,Accessories,5,120.00,180,24.00,Textile Supply,21
+2026-03-23,P-005,Orbit Desk Lamp,Home,25,1125.00,90,45.00,Home Supply,14
+2026-03-23,P-006,Trail Bottle,Accessories,12,360.00,210,30.00,Textile Supply,21
+2026-03-24,P-001,Cedar Notebook,Stationery,6,72.00,138,12.00,Paper Supply,7
+2026-03-24,P-002,Harbor Pen Set,Stationery,11,88.00,0,8.00,Paper Supply,7
+2026-03-24,P-003,Summit Mug,Home,14,252.00,814,18.00,Home Supply,14
+2026-03-24,P-004,Meadow Tote,Accessories,6,144.00,180,24.00,Textile Supply,21
+2026-03-24,P-005,Orbit Desk Lamp,Home,26,1170.00,90,45.00,Home Supply,14
+2026-03-24,P-006,Trail Bottle,Accessories,13,390.00,210,30.00,Textile Supply,21
+2026-03-25,P-001,Cedar Notebook,Stationery,6,72.00,137,12.00,Paper Supply,7
+2026-03-25,P-002,Harbor Pen Set,Stationery,12,96.00,0,8.00,Paper Supply,7
+2026-03-25,P-003,Summit Mug,Home,15,270.00,816,18.00,Home Supply,14
+2026-03-25,P-004,Meadow Tote,Accessories,7,168.00,180,24.00,Textile Supply,21
+2026-03-25,P-005,Orbit Desk Lamp,Home,27,1215.00,90,45.00,Home Supply,14
+2026-03-25,P-006,Trail Bottle,Accessories,14,420.00,210,30.00,Textile Supply,21
+2026-03-26,P-001,Cedar Notebook,Stationery,6,72.00,136,12.00,Paper Supply,7
+2026-03-26,P-002,Harbor Pen Set,Stationery,9,72.00,0,8.00,Paper Supply,7
+2026-03-26,P-003,Summit Mug,Home,16,288.00,818,18.00,Home Supply,14
+2026-03-26,P-004,Meadow Tote,Accessories,5,120.00,180,24.00,Textile Supply,21
+2026-03-26,P-005,Orbit Desk Lamp,Home,28,1260.00,90,45.00,Home Supply,14
+2026-03-26,P-006,Trail Bottle,Accessories,11,330.00,210,30.00,Textile Supply,21
+2026-03-27,P-001,Cedar Notebook,Stationery,5,60.00,135,12.00,Paper Supply,7
+2026-03-27,P-002,Harbor Pen Set,Stationery,10,80.00,0,8.00,Paper Supply,7
+2026-03-27,P-003,Summit Mug,Home,12,216.00,820,18.00,Home Supply,14
+2026-03-27,P-004,Meadow Tote,Accessories,6,144.00,180,24.00,Textile Supply,21
+2026-03-27,P-005,Orbit Desk Lamp,Home,24,1080.00,90,45.00,Home Supply,14
+2026-03-27,P-006,Trail Bottle,Accessories,12,360.00,210,30.00,Textile Supply,21
+2026-03-28,P-001,Cedar Notebook,Stationery,5,60.00,134,12.00,Paper Supply,7
+2026-03-28,P-002,Harbor Pen Set,Stationery,11,88.00,0,8.00,Paper Supply,7
+2026-03-28,P-003,Summit Mug,Home,13,234.00,822,18.00,Home Supply,14
+2026-03-28,P-004,Meadow Tote,Accessories,7,168.00,180,24.00,Textile Supply,21
+2026-03-28,P-005,Orbit Desk Lamp,Home,25,1125.00,90,45.00,Home Supply,14
+2026-03-28,P-006,Trail Bottle,Accessories,13,390.00,210,30.00,Textile Supply,21
+2026-03-29,P-001,Cedar Notebook,Stationery,5,60.00,133,12.00,Paper Supply,7
+2026-03-29,P-002,Harbor Pen Set,Stationery,12,96.00,0,8.00,Paper Supply,7
+2026-03-29,P-003,Summit Mug,Home,14,252.00,824,18.00,Home Supply,14
+2026-03-29,P-004,Meadow Tote,Accessories,5,120.00,180,24.00,Textile Supply,21
+2026-03-29,P-005,Orbit Desk Lamp,Home,26,1170.00,90,45.00,Home Supply,14
+2026-03-29,P-006,Trail Bottle,Accessories,14,420.00,210,30.00,Textile Supply,21
+2026-03-30,P-001,Cedar Notebook,Stationery,5,60.00,132,12.00,Paper Supply,7
+2026-03-30,P-002,Harbor Pen Set,Stationery,9,72.00,0,8.00,Paper Supply,7
+2026-03-30,P-003,Summit Mug,Home,15,270.00,826,18.00,Home Supply,14
+2026-03-30,P-004,Meadow Tote,Accessories,6,144.00,180,24.00,Textile Supply,21
+2026-03-30,P-005,Orbit Desk Lamp,Home,27,1215.00,90,45.00,Home Supply,14
+2026-03-30,P-006,Trail Bottle,Accessories,11,330.00,210,30.00,Textile Supply,21
+2026-03-31,P-001,Cedar Notebook,Stationery,5,60.00,131,12.00,Paper Supply,7
+2026-03-31,P-002,Harbor Pen Set,Stationery,10,80.00,0,8.00,Paper Supply,7
+2026-03-31,P-003,Summit Mug,Home,16,288.00,828,18.00,Home Supply,14
+2026-03-31,P-004,Meadow Tote,Accessories,7,168.00,180,24.00,Textile Supply,21
+2026-03-31,P-005,Orbit Desk Lamp,Home,28,1260.00,90,45.00,Home Supply,14
+2026-03-31,P-006,Trail Bottle,Accessories,12,360.00,210,30.00,Textile Supply,21
