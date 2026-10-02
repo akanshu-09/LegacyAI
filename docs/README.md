@@ -1,3 +1,5 @@
 # Documentation
 
-Project documentation and design notes belong here.
+- [Architecture](ARCHITECTURE.md)
+- [Phase 0 validation](PHASE0_VALIDATION.md)
+- [Roadmap](../ROADMAP.md)

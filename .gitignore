@@ -7,8 +7,12 @@ __pycache__/
 venv/
 env/
 
-# Environment files
-.env
+# Environment files and credentials
+.env*
+!.env.example
+*.pem
+*.key
+credentials*.json
 
 # Test artifacts
 .pytest_cache/
@@ -18,8 +22,30 @@ htmlcov/
 # IDE/editor
 .vscode/
 .idea/
+.vs/
+.fleet/
+*.code-workspace
 *.swp
 
 # OS files
 .DS_Store
 Thumbs.db
+desktop.ini
+.python-version
+
+# JavaScript and build output
+node_modules/
+dist/
+build/
+coverage/
+*.log
+*.tsbuildinfo
+
+# Python tooling and packaging
+.ruff_cache/
+.mypy_cache/
+.tox/
+*.egg-info/
+
+# Local hosting metadata
+.vercel/
