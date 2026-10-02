@@ -59,8 +59,8 @@ Work in phase order. Deployment follows the complete core product vertical slice
 - Acceptance criteria: answers reference active-session evidence, never invent metrics, and clearly identify unsupported requests.
 - Required tests: answerable/unanswerable questions, cross-session access, claim verification, malicious prompts and provider failures.
 - Out of scope: open-domain assistant, web search, vector retrieval/RAG.
-- Completion status: not started.
-- Handoff notes: reuse established verification; do not introduce a second numerical source of truth.
+- Completion status: complete; locally validated on 2026-10-02.
+- Handoff notes: Natural language intent classification, deterministic Python answer compiler, /ask backend endpoint, graceful AI degradation, and /ask frontend page implemented. 237 backend tests and frontend production build pass.
 
 ## Phase 6 — What-If Simulator
 - Objective: explore transparent hypothetical business changes.

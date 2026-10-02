@@ -11,6 +11,8 @@ from app.detectors.engine import detect_issues
 from app.schemas.ai import DecisionReasoning
 from app.verification.verifier import verify_claims
 from app.reasoning.provider import get_reasoner, ProviderError
+from app.ask.intent import classify_intent
+from app.ask.engine import execute_ask
 
 router = APIRouter(prefix="/api/v1/analysis", tags=["analysis"])
 DEMO_PATH = Path(__file__).resolve().parents[2] / "data" / "demo_business.csv"
@@ -190,3 +192,104 @@ def issues(analysis_id: str, request: Request):
     result = detect_issues(session.dataset.records)
     metadata = store.describe(analysis_id)
     return {"analysis_id": analysis_id, "expires_at": metadata["expires_at"], **result}
+
+
+@router.post("/{analysis_id}/ask")
+async def ask(analysis_id: str, request: Request):
+    store = request.app.state.sessions
+    session = store.get(analysis_id)
+    try:
+        body = await request.json()
+        question = body.get("question", "").strip()
+        if not question:
+            raise ValueError
+    except Exception:
+        raise AnalysisError("invalid_request_body", "Request body must be JSON containing a non-empty 'question' string.", 400) from None
+
+    intent = classify_intent(question, session.dataset.records)
+    factual_finding, evidence_list, default_rec = execute_ask(session.dataset.records, intent)
+    metadata = store.describe(analysis_id)
+
+    if not intent.supported or intent.intent_type == "unsupported":
+        return {
+            "analysis_id": analysis_id,
+            "expires_at": metadata["expires_at"],
+            "question": question,
+            "intent": intent.model_dump(),
+            "factual_finding": factual_finding.model_dump(),
+            "ai_available": True,
+            "ai_error": None,
+            "explanation": "LegacyAI abstained from answering this question because the requested topic or metric is not present in the verified dataset.",
+            "recommendation": None,
+            "verification": {
+                "status": "verified",
+                "details": ["Explicit abstention verified for unsupported question."],
+                "valid_citations": [],
+                "invalid_citations": []
+            },
+            "evidence": []
+        }
+
+    virtual_issue = {
+        "issue_id": f"ASK-{hash(question) & 0xFFFFFFFF}",
+        "title": f"Question: {question}",
+        "summary": factual_finding.finding,
+        "entity_name": intent.target_entity or "Business Overview",
+        "severity": "LOW",
+        "evidence_ids": [ev["evidence_id"] for ev in evidence_list]
+    }
+
+    try:
+        reasoner = get_reasoner()
+        reasoning = await reasoner.generate_decision(
+            issue=virtual_issue,
+            evidence=evidence_list,
+            context={"question": question, "intent": intent.intent_type}
+        )
+        verification = verify_claims(reasoning, virtual_issue, evidence_list)
+        valid_set = set(verification.valid_citations)
+        cited_evidence = [ev for ev in evidence_list if ev.get("evidence_id") in valid_set]
+        if not cited_evidence:
+            cited_evidence = evidence_list
+
+        rec = default_rec
+        if reasoning.recommendation and reasoning.recommendation.action:
+            rec = {
+                "action": reasoning.recommendation.action,
+                "target": reasoning.recommendation.target,
+                "timeframe_days": reasoning.recommendation.timeframe_days
+            }
+
+        return {
+            "analysis_id": analysis_id,
+            "expires_at": metadata["expires_at"],
+            "question": question,
+            "intent": intent.model_dump(),
+            "factual_finding": factual_finding.model_dump(),
+            "ai_available": True,
+            "ai_error": None,
+            "explanation": reasoning.summary,
+            "recommendation": rec,
+            "verification": verification.model_dump(),
+            "evidence": cited_evidence
+        }
+    except ProviderError as exc:
+        return {
+            "analysis_id": analysis_id,
+            "expires_at": metadata["expires_at"],
+            "question": question,
+            "intent": intent.model_dump(),
+            "factual_finding": factual_finding.model_dump(),
+            "ai_available": False,
+            "ai_error": str(exc.message),
+            "explanation": factual_finding.finding,
+            "recommendation": default_rec,
+            "verification": {
+                "status": "unverified",
+                "details": [f"AI explanation unavailable ({exc.message}). Displaying deterministic Python finding."],
+                "valid_citations": [],
+                "invalid_citations": []
+            },
+            "evidence": evidence_list
+        }
+
