@@ -6,6 +6,7 @@ from fastapi import APIRouter, Request, Response
 from starlette.concurrency import run_in_threadpool
 
 from app.ingestion.validation import AnalysisError, MAX_UPLOAD_BYTES, ingest_csv
+from app.analytics.metrics import calculate_analytics
 
 router = APIRouter(prefix="/api/v1/analysis", tags=["analysis"])
 DEMO_PATH = Path(__file__).resolve().parents[2] / "data" / "demo_business.csv"
@@ -51,6 +52,16 @@ def demo(request: Request):
 @router.get("/{analysis_id}")
 def profile(analysis_id: str, request: Request):
     return request.app.state.sessions.describe(analysis_id)
+
+
+@router.get("/{analysis_id}/analytics")
+def analytics(analysis_id: str, request: Request):
+    store = request.app.state.sessions
+    session = store.get(analysis_id)
+    result = calculate_analytics(session.dataset.records)
+    # No cache or lifetime extension; reject expiry/release during computation.
+    metadata = store.describe(analysis_id)
+    return {"analysis_id": analysis_id, "expires_at": metadata["expires_at"], **result}
 
 
 @router.delete("/{analysis_id}", status_code=204)

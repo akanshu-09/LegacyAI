@@ -29,8 +29,8 @@ Work in phase order. Deployment follows the complete core product vertical slice
 - Acceptance criteria: metrics match hand-verified fixtures; unsupported calculations abstain; frontend displays backend results.
 - Required tests: known totals, boundary dates, zero denominators, missing data, returns, rounding and aggregation invariants.
 - Out of scope: issue recommendations, LLM calculations, forecasting.
-- Completion status: not started.
-- Handoff notes: document exact formulas and provenance needed by evidence generation.
+- Completion status: complete; locally validated and reviewed on 2026-10-02. Metric semantics preceded implementation; independent fixture/demo checks, 90 passing backend tests, frontend production build, upload/demo workflows and Phase 1 regressions passed. See docs/PHASE2_VALIDATION.md.
+- Handoff notes: docs/METRICS.md defines analytics-v1 formulas, exact Decimal serialization, latest-per-product inventory and fixed seven-day comparison/abstention policy. Phase 3 must consume these verified values and support states for evidence generation. No detection, AI or deployment is implemented. Stop until Phase 3 is requested.
 
 ## Phase 3 — Issue Detection & Evidence
 - Objective: turn trusted metrics into traceable issues.

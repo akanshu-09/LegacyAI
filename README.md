@@ -4,7 +4,7 @@ An evidence-backed AI decision engine for business sales and inventory data, bui
 
 **AI reasons about verified data — it does not replace the data.** Authoritative business metrics will come exclusively from deterministic Python calculations.
 
-Phase 0 provides the React/Vite + FastAPI foundation. Phase 1 adds supported CSV validation, normalized backend data, temporary analysis sessions, a synthetic demo and a structural dataset profile at `/data`. Business analytics and AI features are not implemented yet. See [ROADMAP.md](ROADMAP.md).
+Phase 0 provides the React/Vite + FastAPI foundation. Phase 1 adds CSV validation, temporary analysis sessions, a synthetic demo and a structural dataset profile at `/data`. Phase 2 adds deterministic backend analytics at `/insights`: business, product and category summaries, daily sales, and supported period comparisons. AI features remain planned. See [ROADMAP.md](ROADMAP.md).
 
 ## Repository
 
@@ -55,7 +55,9 @@ curl.exe -X POST http://localhost:8000/api/v1/analysis/upload -H "Content-Type: 
 curl.exe -X POST http://localhost:8000/api/v1/analysis/demo
 ```
 
-Run upload commands from the repository root. Retrieve/release profiles with GET/DELETE `/api/v1/analysis/{analysis_id}`. Unknown/expired IDs return 404 with instructions to reload data. See the data contract for error shapes and session capacity limits.
+Run upload commands from the repository root. Retrieve/release profiles with GET/DELETE `/api/v1/analysis/{analysis_id}`. GET `/api/v1/analysis/{analysis_id}/analytics` returns deterministic metrics without raw rows or extending expiry. Unknown/expired IDs return 404 with instructions to reload data. See the data contract for error shapes and session capacity limits.
+
+After loading data, follow **View deterministic business analytics** to `/insights`. Revenue uses the supplied values; inventory uses each product's latest snapshot once. Comparisons use the latest seven dataset calendar days versus the preceding seven, requiring complete daily product coverage. Missing observations cause explicit abstention. Money uses Decimal and two-place strings; V1 supplies no currency identifier. See [metric definitions](docs/METRICS.md) for exact formulas and limitations.
 
 `VITE_API_BASE_URL` defaults to `http://localhost:8000`. Vite embeds it in the browser bundle at build time: never put secrets in `VITE_*` variables. Restart Vite after configuration changes. No API keys are needed in Phase 0.
 
@@ -75,4 +77,4 @@ For preview connectivity add `http://localhost:4173` to backend `CORS_ORIGINS` a
 
 React/React DOM render the UI; Vite and its React plugin provide build tooling. FastAPI/Uvicorn provide the API/server; python-dotenv loads local configuration. Pytest/HTTPX test API behavior. No analytics or AI dependencies are included.
 
-Phase 1 adds CSV ingestion, validation and temporary analysis sessions. Deployment to Vercel and Render is Phase 7, after the complete core product works locally. Groq will remain server-side in Phase 4. See [architecture](docs/ARCHITECTURE.md), [Phase 0 validation](docs/PHASE0_VALIDATION.md) and [Phase 1 validation](docs/PHASE1_VALIDATION.md).
+Deployment to Vercel and Render is Phase 7, after the complete core product works locally. Groq will remain server-side in Phase 4. See [architecture](docs/ARCHITECTURE.md), [Phase 0 validation](docs/PHASE0_VALIDATION.md), [Phase 1 validation](docs/PHASE1_VALIDATION.md) and [Phase 2 validation](docs/PHASE2_VALIDATION.md).

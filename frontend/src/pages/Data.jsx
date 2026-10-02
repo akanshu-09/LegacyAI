@@ -43,7 +43,7 @@ function DatasetProfile({ analysis }) {
       <p className="column-list">{profile.schema.recognized_columns.join(', ')}</p>
       {profile.schema.absent_optional_columns.length > 0 && <p>Optional columns not supplied: {profile.schema.absent_optional_columns.join(', ')}</p>}
       <p>Session expires at <time dateTime={analysis.expires_at}>{new Date(analysis.expires_at).toLocaleString()}</time>. Reloading does not extend its lifetime.</p>
-      <p className="muted">This is a structural dataset profile. Business analytics will be added in Phase 2.</p>
+      <p className="muted">This is a structural dataset profile. <a href="/insights">View deterministic business analytics →</a></p>
     </section>
   );
 }
